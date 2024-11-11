@@ -95,15 +95,15 @@ const userDashboard = () => {
               </li>
               <li>
                 <a href="/about" className="block py-3 px-3">
-                  About
+                  Audit
                 </a>
               </li>
               <li>
                 <a href="/" className="block py-3 px-3">
-                  Services
+                  White Paper
                 </a>
               </li>
-              
+
               <li>
                 <a href="/userDashboard" className="block py-3 px-3">
                   User Dashboard

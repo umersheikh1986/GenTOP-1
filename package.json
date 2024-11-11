@@ -14,6 +14,7 @@
     "@walletconnect/web3-provider": "^1.8.0",
     "@web3-react/walletconnect": "^8.2.3",
     "ethers": "^5.7.2",
+    "gentop": "file:",
     "i": "^0.3.7",
     "next": "14.2.15",
     "npm": "^10.9.0",
