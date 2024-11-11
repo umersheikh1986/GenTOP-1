@@ -1655,12 +1655,12 @@ export default function Trade() {
                 </a>
               </li>
               <li>
-                <a href="/about" className="block py-3 px-3 ">
+                <a href="/Audit" className="block py-3 px-3 ">
                   Audit
                 </a>
               </li>
               <li>
-                <a href="/" className="block py-3 px-3   ">
+                <a href="/whitePaper" className="block py-3 px-3   ">
                   White Paper
                 </a>
               </li>
