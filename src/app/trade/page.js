@@ -279,10 +279,10 @@ const usdtABI = [
 // const gentopAddress = "0x4f0daE1cdB68f845Ad6BfeD8Ece38d1616cb6D75"; // Replace with Contract 2 address
 // const stakingContractAddress = "0x03aDfa4f5E9D5D68db17Efe9CdcC145105247423"; // Replace with Contract 3 address
 // const preSaleContractAddress = "0xF1C805cCC94c99fE25B22c1636F507D7069D5E1C"; // Replace with Contract 4 address
-const usdtAddress = "0xf85b3705C94bAa4Fa60bB9AC073Af48e61456F9c"; // Replace with Contract 1 address
-const gentopAddress = "0x81870f43b3a380E3b9c309CD9cf15192EFe24d07"; // Replace with Contract 2 address
-const stakingContractAddress = "0x394734ee25DbF571a3FE5428B5BD946F9F238364"; // Replace with Contract 3 address
-const preSaleContractAddress = "0xAA5ec1E420cf0b198E861851c082621D47ac353d"; // Replace with Contract 4 address
+const usdtAddress = "0x5990B75EaFCCB64575294e443c5A7B14830C3715"; // Replace with Contract 1 address
+const gentopAddress = "0xC3A3084A11a2575C96731ed0F80d5fb3195E8768"; // Replace with Contract 2 address
+const stakingContractAddress = "0x8507B64F49CF48e6c90d10AB4E33F6e468573EbF"; // Replace with Contract 3 address
+const preSaleContractAddress = "0xCFee3B5AeE20c50A713bc5D7cFc10305e805AB30"; // Replace with Contract 4 address
 
 const providerOptions = {
   coinbasewallet: {
@@ -643,6 +643,298 @@ export default function Trade() {
   }
   async function fetchUsdtBalance(signer, address) {
     try {
+      const usdtABI = [
+        {
+          inputs: [
+            { internalType: "address", name: "_owner", type: "address" },
+          ],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "constructor",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "owner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "spender",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "value",
+              type: "uint256",
+            },
+          ],
+          name: "Approval",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "previousOwner",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "newOwner",
+              type: "address",
+            },
+          ],
+          name: "OwnershipTransferred",
+          type: "event",
+        },
+        {
+          anonymous: false,
+          inputs: [
+            {
+              indexed: true,
+              internalType: "address",
+              name: "from",
+              type: "address",
+            },
+            {
+              indexed: true,
+              internalType: "address",
+              name: "to",
+              type: "address",
+            },
+            {
+              indexed: false,
+              internalType: "uint256",
+              name: "value",
+              type: "uint256",
+            },
+          ],
+          name: "Transfer",
+          type: "event",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "_decimals",
+          outputs: [{ internalType: "uint8", name: "", type: "uint8" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "_name",
+          outputs: [{ internalType: "string", name: "", type: "string" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "_symbol",
+          outputs: [{ internalType: "string", name: "", type: "string" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [
+            { internalType: "address", name: "owner", type: "address" },
+            { internalType: "address", name: "spender", type: "address" },
+          ],
+          name: "allowance",
+          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "address", name: "spender", type: "address" },
+            { internalType: "uint256", name: "amount", type: "uint256" },
+          ],
+          name: "approve",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [
+            { internalType: "address", name: "account", type: "address" },
+          ],
+          name: "balanceOf",
+          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "uint256", name: "amount", type: "uint256" },
+          ],
+          name: "burn",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "decimals",
+          outputs: [{ internalType: "uint8", name: "", type: "uint8" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "address", name: "spender", type: "address" },
+            {
+              internalType: "uint256",
+              name: "subtractedValue",
+              type: "uint256",
+            },
+          ],
+          name: "decreaseAllowance",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "getOwner",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "address", name: "spender", type: "address" },
+            { internalType: "uint256", name: "addedValue", type: "uint256" },
+          ],
+          name: "increaseAllowance",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "uint256", name: "amount", type: "uint256" },
+          ],
+          name: "mint",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "name",
+          outputs: [{ internalType: "string", name: "", type: "string" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "owner",
+          outputs: [{ internalType: "address", name: "", type: "address" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "address", name: "_newOwner", type: "address" },
+          ],
+          name: "renounceOwnership",
+          outputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "symbol",
+          outputs: [{ internalType: "string", name: "", type: "string" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: true,
+          inputs: [],
+          name: "totalSupply",
+          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+          payable: false,
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "address", name: "recipient", type: "address" },
+            { internalType: "uint256", name: "amount", type: "uint256" },
+          ],
+          name: "transfer",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "address", name: "sender", type: "address" },
+            { internalType: "address", name: "recipient", type: "address" },
+            { internalType: "uint256", name: "amount", type: "uint256" },
+          ],
+          name: "transferFrom",
+          outputs: [{ internalType: "bool", name: "", type: "bool" }],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          constant: false,
+          inputs: [
+            { internalType: "address", name: "newOwner", type: "address" },
+          ],
+          name: "transferOwnership",
+          outputs: [],
+          payable: false,
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+      ];
       const usdtContract = new ethers.Contract(usdtAddress, usdtABI, signer);
       const balance = await usdtContract.balanceOf(address);
       console.log(balance);
@@ -1013,7 +1305,6 @@ export default function Trade() {
           type: "function",
         },
       ];
-
       const usdtContract = new ethers.Contract(usdtAddress, usdtABI, signer);
 
       const amountToApprove = ethers.utils.parseEther(usdtAmount);
@@ -1380,6 +1671,8 @@ export default function Trade() {
             { internalType: "uint256", name: "joinTime", type: "uint256" },
             { internalType: "uint256", name: "joiningAmount", type: "uint256" },
             { internalType: "uint256", name: "percenTage", type: "uint256" },
+            { internalType: "uint256", name: "endTime", type: "uint256" },
+            { internalType: "uint256", name: "totalReward", type: "uint256" },
           ],
           stateMutability: "view",
           type: "function",
@@ -1516,6 +1809,8 @@ export default function Trade() {
             { internalType: "uint256", name: "", type: "uint256" },
             { internalType: "uint256", name: "", type: "uint256" },
             { internalType: "uint256", name: "", type: "uint256" },
+            { internalType: "uint256", name: "", type: "uint256" },
+            { internalType: "uint256", name: "", type: "uint256" },
           ],
           stateMutability: "view",
           type: "function",
@@ -1597,7 +1892,11 @@ export default function Trade() {
       console.log("Runner option selected:", runner);
 
       // Call the Buy function
-      const tx = await preSaleContract.Buy(amountToApprove, walletAddress, 1);
+      const tx = await preSaleContract.Buy(
+        amountToApprove,
+        walletAddress,
+        runner
+      );
       console.log("Transaction initiated:", tx);
 
       // Wait for the transaction to be confirmed
@@ -1655,18 +1954,13 @@ export default function Trade() {
                 </a>
               </li>
               <li>
-                <a href="/Audit" className="block py-3 px-3 ">
+                <a href="/about" className="block py-3 px-3 ">
                   Audit
                 </a>
               </li>
               <li>
-                <a href="/whitePaper" className="block py-3 px-3   ">
+                <a href="/" className="block py-3 px-3   ">
                   White Paper
-                </a>
-              </li>
-              <li>
-                <a href="/userDashboard" className="block py-3 px-3    ">
-                  UserDashboard
                 </a>
               </li>
             </ul>
