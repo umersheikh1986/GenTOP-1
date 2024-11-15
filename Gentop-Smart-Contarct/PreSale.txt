@@ -1,0 +1,232 @@
+// SPDX-License-Identifier: Bawdicsoft
+
+pragma solidity ^0.8.19;
+// import "hardhat/console.sol";
+
+/**
+ * @dev Interface of the ERC20 standard as defined in the EIP.
+ */
+interface IERC20 {
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(address indexed owner, address indexed spender, uint256 value);
+
+    /**
+     * @dev Returns the value of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
+
+    /**
+     * @dev Returns the value of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
+
+    /**
+     * @dev Moves a `value` amount of tokens from the caller's account to `to`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address to, uint256 value) external returns (bool);
+
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(address owner, address spender) external view returns (uint256);
+
+    /**
+     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the
+     * caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 value) external returns (bool);
+
+    /**
+     * @dev Moves a `value` amount of tokens from `from` to `to` using the
+     * allowance mechanism. `value` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(address from, address to, uint256 value) external returns (bool);
+}
+
+
+contract PreSale{
+    // State variables
+        IERC20 public _GentTop;
+        IERC20 public _USDT;
+        uint256 public _BronzePercentage; 
+        uint256 public _SilverPercentage; 
+        uint256 public _GoldPercentage; 
+        uint256 public _BronzePrice = 8000; 
+        uint256 public _SilverPrice = 4000; 
+        uint256 public _GoldPrice = 2000; 
+        uint public _limitSale = 400*10**9;
+        // uint public _limitSale = 400*10**9;
+        // uint public _limitSale = 400*10**9;
+        uint256 public _bronzeSold;
+        uint256 public _silverSold;
+        uint256 public _goldSold;
+        address public owner;
+        address public staking;
+        address public buyer;
+        uint256 public totalTokenpurchased ;
+        uint256 public price;
+        uint256 public salesClosingTime;
+    
+    
+    // Structs
+       struct _user{
+        address userAdd;
+        uint joinTime;
+        uint joiningAmount;
+        uint percenTage ;
+        uint endTime;
+        uint totalReward;
+    } 
+    // Mapping
+       mapping (address => mapping(uint => _user)) public User;
+       mapping (address => uint ) public userPurcahases;
+    // Modifier 
+    // Events
+    // Constructor 
+        constructor(IERC20 __USDT, IERC20 __GentTop, address _staking, address _owner ,uint _price){
+            _USDT = __USDT;
+            _GentTop = __GentTop;
+            staking = _staking;
+            owner = _owner;
+            _BronzePercentage = 24;
+            _SilverPercentage =  36;
+            _GoldPercentage = 45;
+            price = _price;
+            salesClosingTime = block.timestamp + (86400*30); 
+        }
+
+
+    // Read Functions 
+    // Function to read user data
+        function getUserData(address _userAdd, uint _num) public view returns (
+            address,
+            uint,
+            uint,
+            uint,
+            uint,
+            uint
+        ) {  
+            return (User[_userAdd][_num].userAdd, User[_userAdd][_num].joinTime, User[_userAdd][_num].joiningAmount, User[_userAdd][_num].percenTage,User[_userAdd][_num].endTime, User[_userAdd][_num].totalReward );
+        }
+
+
+        function checkCumulativeReward(
+            address userAddress,
+            uint _num
+        ) public view returns (uint) {
+            (,,uint JoiningAmount,uint percentage,,) = getUserData(userAddress,_num);
+            uint256 rewardPercentage = ( (JoiningAmount*10**20) * (percentage*10**20)) / (100*10**20);
+            uint totaReward = (rewardPercentage + (JoiningAmount*10**20));
+            return totaReward;
+        }
+        
+        
+        function UserPurcahases(address __user) external view returns(uint){
+            return userPurcahases[__user];
+        }
+
+
+    // Write Functions 
+        function setPercentage(uint256 _percentage, uint _whichTypeOfPercentage) public {
+            require(msg.sender == owner, "only owner can run this function");
+            if(_whichTypeOfPercentage == 1){
+                _BronzePercentage = _percentage;
+            }else if(_whichTypeOfPercentage == 2){
+                _SilverPercentage = _percentage;
+            }else if(_whichTypeOfPercentage == 3){
+                _GoldPercentage = _percentage;
+            }
+        }
+
+        function getTotalTokenPurchased() external view returns (uint256) {
+            return totalTokenpurchased;
+        } 
+
+        function Buy(uint _usdtAmount, address _buyer, uint _runner) public  {
+            require(_runner >= 1 || _runner <= 3, "Wrong number of runner");
+            require(block.timestamp <= salesClosingTime ,"Sales Times up!");
+            uint256 num = userPurcahases[_buyer];
+            uint256 _price;
+            uint256 percentage;
+            uint256 sold;
+            uint endtimee;
+            if( _runner == 1){
+                percentage = _BronzePercentage;
+                _price = _BronzePrice;
+                sold = _bronzeSold;
+                // endtimee = 120 * 86400;
+                endtimee = 1200;
+            }else if(_runner == 2){
+                percentage = _SilverPercentage;
+                _price = _SilverPrice;
+                sold = _silverSold;
+                // endtimee = 90 * 86400;
+                endtimee = 600;
+            }else if(_runner == 3){
+                percentage = _GoldPercentage;
+                _price = _GoldPrice;
+                sold = _goldSold;
+                endtimee = 300;
+
+            }
+            require( sold <= _limitSale, "sold limit reach");
+            uint256 num2 = num+1;
+            // user pays usdt to owner then user receive tokens
+            _USDT.transferFrom(_buyer, owner,_usdtAmount);
+            User[_buyer][num2].userAdd = _buyer;
+            User[_buyer][num2].joinTime = block.timestamp;
+            User[_buyer][num2].joiningAmount = _usdtAmount * _price;
+            User[_buyer][num2].endTime = endtimee;
+            User[_buyer][num2].percenTage = percentage;
+            User[_buyer][num2].totalReward = User[_buyer][num2].joiningAmount+((User[_buyer][num2].joiningAmount * percentage)/100);
+
+            userPurcahases[_buyer] +=1;  
+            // Increase the total token count
+            totalTokenpurchased = totalTokenpurchased + (User[_buyer][num2].joiningAmount+((User[_buyer][num2].joiningAmount * percentage)/100) );          
+        }
+      
+        function withdrawAdmin()external{
+            require(msg.sender == owner, "only owner can Run this function");
+            uint bal = _GentTop.balanceOf(address(this));
+            uint balUsd = _USDT.balanceOf(address(this));
+            _GentTop.transfer(owner, bal);
+            _USDT.transfer(owner, balUsd);
+        }
+        
+
+}

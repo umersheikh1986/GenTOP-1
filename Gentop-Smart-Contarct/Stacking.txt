@@ -1,0 +1,240 @@
+// SPDX-License-Identifier: Bawdicsoft
+pragma solidity ^0.8.19;
+// import "hardhat/console.sol";
+interface IERC20 {
+    /**
+     * @dev Emitted when `value` tokens are moved from one account (`from`) to
+     * another (`to`).
+     *
+     * Note that `value` may be zero.
+     */
+    event Transfer(address indexed from, address indexed to, uint256 value);
+
+    /**
+     * @dev Emitted when the allowance of a `spender` for an `owner` is set by
+     * a call to {approve}. `value` is the new allowance.
+     */
+    event Approval(
+        address indexed owner,
+        address indexed spender,
+        uint256 value
+    );
+
+    /**
+     * @dev Returns the value of tokens in existence.
+     */
+    function totalSupply() external view returns (uint256);
+
+    /**
+     * @dev Returns the value of tokens owned by `account`.
+     */
+    function balanceOf(address account) external view returns (uint256);
+
+    /**
+     * @dev Moves a `value` amount of tokens from the caller's account to `to`.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transfer(address to, uint256 value) external returns (bool);
+
+    /**
+     * @dev Returns the remaining number of tokens that `spender` will be
+     * allowed to spend on behalf of `owner` through {transferFrom}. This is
+     * zero by default.
+     *
+     * This value changes when {approve} or {transferFrom} are called.
+     */
+    function allowance(
+        address owner,
+        address spender
+    ) external view returns (uint256);
+
+    /**
+     * @dev Sets a `value` amount of tokens as the allowance of `spender` over the
+     * caller's tokens.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * IMPORTANT: Beware that changing an allowance with this method brings the risk
+     * that someone may use both the old and the new allowance by unfortunate
+     * transaction ordering. One possible solution to mitigate this race
+     * condition is to first reduce the spender's allowance to 0 and set the
+     * desired value afterwards:
+     * https://github.com/ethereum/EIPs/issues/20#issuecomment-263524729
+     *
+     * Emits an {Approval} event.
+     */
+    function approve(address spender, uint256 value) external returns (bool);
+
+    /**
+     * @dev Moves a `value` amount of tokens from `from` to `to` using the
+     * allowance mechanism. `value` is then deducted from the caller's
+     * allowance.
+     *
+     * Returns a boolean value indicating whether the operation succeeded.
+     *
+     * Emits a {Transfer} event.
+     */
+    function transferFrom(
+        address from,
+        address to,
+        uint256 value
+    ) external returns (bool);
+}
+interface IpreSale {
+    function getUserData(
+        address _userAdd,
+        uint _num
+    ) external view returns (address, uint, uint, uint,uint,uint);
+    function UserPurcahases(address _userAdd) external view returns(uint);
+    function getTotalTokenPurchased() external view returns (uint256);
+
+}
+contract Stacking {
+    // State variables
+    IERC20 _GentTop;
+    IERC20 _USDT;
+    IpreSale public _preSale;
+    address _owner;
+    uint256 public constant SECONDS_IN_A_DAY = 86400; // 24 hours in seconds
+    // uint256 public constant STAKING_120_DAYS = 120 * SECONDS_IN_A_DAY; // 120 days
+    // uint256 public constant STAKING_90_DAYS = 90 * SECONDS_IN_A_DAY; // 90 days
+    // uint256 public constant STAKING_45_DAYS = 45 * SECONDS_IN_A_DAY; // 45 days
+
+ // State variables for tracking users and rewards
+    // uint256 public totalStakedUsers;
+    uint256 public totalRewardsGiven;
+
+    uint256 public constant STAKING_120_DAYS = 1200; // 120 days
+    uint256 public constant STAKING_90_DAYS = 600; // 90 days
+    uint256 public constant STAKING_45_DAYS = 300; // 45 days
+
+    // Structs
+    struct UserData {
+        address userAddress;
+        uint joinTime;
+        uint joiningAmount;
+        uint256 stakingSeconds;
+    }
+    constructor(IERC20 __USDT, IERC20 __GentTop,  address owner) {
+        _USDT = __USDT;
+        _GentTop = __GentTop;
+        _owner = owner;
+    }
+    // Mapping
+    mapping(address => UserData) public userDatas;
+    mapping (address => mapping(uint => uint) ) public userPurcahasesS;
+    mapping ( address => uint ) public userPurcahases;
+    // Modifier
+    // Events
+    // Constructor
+    // Read Functions
+    function checkCumulativeReward(
+            address userAddress,
+            uint _num
+        ) public view returns (uint256) {
+        (,uint _joinTime,uint JoiningAmount,uint percentage,,) = _preSale.getUserData(userAddress,_num);
+        uint256 timeDifference = block.timestamp - _joinTime;
+        uint256 rewardPercentage = ( (JoiningAmount*10**20) * (percentage*10**20)) / (100*10**20);
+        uint totaReward = (rewardPercentage + (JoiningAmount*10**20));
+        uint256 cumulativeReward;
+        uint256 realAmount;
+        if (percentage == 24) {
+            cumulativeReward = totaReward / STAKING_120_DAYS;
+            if( timeDifference >= STAKING_120_DAYS){
+                realAmount = (totaReward)/10**20;    
+                // console.log("  reward Percentage + realAmount :",totaReward, realAmount);
+            }else if(timeDifference < STAKING_120_DAYS){
+                realAmount = (cumulativeReward * timeDifference)/10**20;    
+                // console.log("  time is lss :",totaReward, realAmount);
+            }    
+        } else if (percentage == 36) {
+            cumulativeReward = totaReward / STAKING_90_DAYS;
+            if( timeDifference >= STAKING_90_DAYS){
+                realAmount = (totaReward)/10**20;  
+            }else if(timeDifference < STAKING_90_DAYS){
+                realAmount = (cumulativeReward * timeDifference)/10**20;    
+            }   
+        } else if (percentage == 45) {
+            cumulativeReward = totaReward / STAKING_45_DAYS;
+            if( timeDifference >= STAKING_45_DAYS){
+                realAmount = (totaReward)/10**20;   
+            }else if(timeDifference < STAKING_45_DAYS){
+                realAmount = (cumulativeReward * timeDifference)/10**20;    
+            }        
+        }
+        return realAmount;
+    }
+    function GetUserData(address userAddress, uint _num) public view returns(uint, uint,uint){
+       (,uint joinTime,,, uint endTime,uint totalReward) = _preSale.getUserData(userAddress, _num);
+       return ( joinTime, endTime, totalReward) ;
+    }
+    // Write Function
+    function setPreSale(address __preSale) public {
+        require(msg.sender == _owner, "Only owner can run this function");
+        _preSale = IpreSale(__preSale);
+    }
+
+    function Savedata(uint _num) internal {
+        // Retrieve user data from PreSale contract
+        (,uint joinTime,uint joiningAmount,,,) = _preSale.getUserData(msg.sender, _num);
+        // Save the user data into Stacking contract
+        UserData storage newUserData = userDatas[msg.sender];
+        newUserData.userAddress = msg.sender;
+        newUserData.joinTime = joinTime;
+        newUserData.joiningAmount = joiningAmount;
+
+      
+        // if (userPurcahases[msg.sender] == 0) {
+        //     totalStakedUsers++;
+        // }
+    }
+
+    function WithdrawReward(address userAddress, uint _num) external  {
+        require(userPurcahasesS[userAddress][_num] < 2, "you have already claimed reward");
+        (,uint joinTime,,uint percentage,,) = _preSale.getUserData(userAddress, _num);
+        // Check cumulative reward
+        uint256 rewardAmount = checkCumulativeReward(userAddress, _num);
+        // Determine staking period
+        uint256 stakingPeriod;
+        if (percentage == 24) {
+            stakingPeriod = STAKING_120_DAYS;
+        } else if (percentage == 36) {
+            stakingPeriod = STAKING_90_DAYS;
+        } else if (percentage == 45) {
+            stakingPeriod = STAKING_45_DAYS;
+        } 
+        // Ensure staking period is over before transferring the reward
+        require(block.timestamp >= (joinTime + stakingPeriod),"Too Early to withdraw");
+        // if (block.timestamp >= (joinTime + stakingPeriod)) {
+
+            _GentTop.transfer(userAddress, rewardAmount);
+            userPurcahasesS[userAddress][_num] = 2;
+             // Update total rewards given
+            totalRewardsGiven += rewardAmount;
+             // Successful withdrawal after staking period
+        // } 
+    }
+
+
+    function checkGentTopBalance() external view returns (uint256) {
+        uint balanceOfContract =  _GentTop.balanceOf(address(this));
+        uint totalpurchased = (_preSale.getTotalTokenPurchased());
+        // console.log(totalpurchased);
+        uint returnValue = (totalpurchased - (balanceOfContract + totalRewardsGiven));
+        return  returnValue;
+    } 
+
+
+     
+    function withdrawAdmin()external{
+        require(msg.sender == _owner, "only owner can Run this function ");
+        uint bal = _GentTop.balanceOf(address(this));
+        _GentTop.transfer(_owner, bal);
+    }
+
+   
+
+}
