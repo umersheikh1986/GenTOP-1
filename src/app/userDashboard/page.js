@@ -6,7 +6,7 @@ import Web3Modal from "web3modal";
 import { ethers } from "ethers";
 import CoinbaseWalletSDK from "@coinbase/wallet-sdk";
 import WalletConnect from "@walletconnect/web3-provider";
-import UserDashboard1 from "../component/UserDashboard1.tsx";
+import UserDashboard1 from "../component/UserDashboard1";
 const providerOptions = {
   walletconnect: {
     package: WalletConnect,
