@@ -220,7 +220,7 @@ function HomeHeader() {
               href="/trade"
               className="text-white bg-[#14000b] border border-white hover:bg-transparent focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-8 py-2 text-center "
             >
-              Buy
+              Connect Wallet
             </Link>
             <button
               data-collapse-toggle="navbar-sticky"
@@ -269,8 +269,8 @@ function HomeHeader() {
               </li>
 
               <li>
-                <a href="/userDashboard" className="block py-3 px-3    ">
-                  User Dashboard
+                <a href="/trade" className="block py-3 px-3    ">
+                  Buy
                 </a>
               </li>
             </ul>
