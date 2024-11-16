@@ -4022,14 +4022,12 @@ export default function Trade() {
                 </a>
               </li>
               <li>
-                <a href="/" className="block py-3 px-3   ">
+                <a href="/Audit" className="block py-3 px-3   ">
                   White Paper
                 </a>
               </li>
               <li>
-                <a href="/userDashboard" className="block py-3 px-3    ">
-                  User Dashboard
-                </a>
+                <a href="/#" className="block py-3 px-3    "></a>
               </li>
             </ul>
           </div>
