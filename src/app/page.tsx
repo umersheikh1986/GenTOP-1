@@ -15,7 +15,7 @@ export default function Home() {
       <Solidarity />
       <Mentality />
       <Decentralization />
-      <CombinedLevel />
+      {/* <CombinedLevel /> */}
       <IndividualLevel />
       {/* <Registration /> */}
     </main>

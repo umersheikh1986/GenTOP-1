@@ -21,7 +21,7 @@ const Mentality = () => {
 
           <div className="py-4 flex justify-center">
             <Image
-              src={`/bitcoin.png`}
+              src={`/Big-Gentop.png`}
               alt="bitcoin"
               width={400}
               height={400}
@@ -38,8 +38,8 @@ const Mentality = () => {
                 <p className="font bold text-3xl">• 2024 Q4</p>
                 <ol>
                   <li className="font bold text-xl">- Staking</li>
-                  <li>- DEX Listing</li>
-                  <li>- Education Platform</li>
+                  <li className="font bold text-xl">- DEX Listing</li>
+                  <li className="font bold text-xl">- Education Platform</li>
                 </ol>
               </li>
               <hr />
