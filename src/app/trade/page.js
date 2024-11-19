@@ -4423,7 +4423,7 @@ const providerOptions = {
 
 export default function Trade() {
   const router = useRouter();
-  const [selectedOption, setSelectedOption] = useState(null);
+  const [selectedOption, setSelectedOption] = useState(1);
   const [web3Provider, setWeb3Provider] = useState(null);
   const [walletAddress, setWalletAddress] = useState(null);
   const [usdtBalance, setUsdtBalance] = useState(null);
