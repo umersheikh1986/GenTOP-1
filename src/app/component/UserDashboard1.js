@@ -2714,26 +2714,26 @@ const UserDashboard1 = () => {
 
   function shortenAddress(address) {
     if (!address) return "";
-    return `${address.slice(0, 9)}...${address.slice(-15)}`;
+    return `${address.slice(0, 9)}...${address.slice(-4)}`;
   }
   return (
     <div>
-      <div className="flex flex-col md:flex-row mt-10 min-h-screen text-white p-10 space-x-5">
+      <div className="flex flex-col md:flex-row  min-h-screen text-white  space-x-5">
         {/* Left Side: Connect Wallet Button */}
-        <div className="w-full md:w-1/3 p-10 shadow-md rounded-lg">
+        <div className=" md:w-1/4 p-10 shadow-md rounded-lg">
           <h2 className="text-xl font-semibold mb-6">User Dashboard</h2>
-          <div className="w-auto  bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
+          <div className="  bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Your Address</p>
             <p className="text-center">
               {" "}
               {walletAddress ? shortenAddress(walletAddress) : ""}
             </p>
           </div>
-          <div className="w-full mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
+          <div className=" mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Gentop Stacked</p>
             <p className="text-center"> {totalStakingRewardSum}</p>
           </div>
-          <div className="w-full mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
+          <div className=" mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Rewards</p>
             <p className="text-center"> {totalUptoDateRewardSum}</p>
           </div>
