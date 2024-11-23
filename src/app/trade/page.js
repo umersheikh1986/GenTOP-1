@@ -9813,16 +9813,16 @@ export default function Trade() {
   return (
     <div>
       <section>
-        <div className="flex justify-center items-center min-h-screen">
+        <div className=" flex justify-center items-center min-h-screen">
           <div className="max-w-[720px] mx-auto">
             {/* <h1 className="text-white"> Web3Modal connection</h1> */}
-            <div className="text-white">
+            <div className="text-white  ml-10  flex items-center justify-center">
               {" "}
               <button className="" onClick={connectWallet}>
                 {walletAddress}
               </button>
             </div>
-            <div className="block mb-4 mx-auto border-b border-slate-300 pb-2 max-w-[360px]">
+            <div className="block   items-center justify-center  mb-4 ml-10  border-slate-300 pb-2 max-w-[360px]">
               <a
                 target="_blank"
                 href="https://www.material-tailwind.com/docs/html/card"
@@ -9831,6 +9831,7 @@ export default function Trade() {
                 Buy Your Own <b>Gentop Token</b>.
               </a>
             </div>
+            <hr className="ml-10 " />
             <h1 className="text-white ml-5">
               {usdtBalance !== null && <p>USDT Balance: {usdtBalance} USDT</p>}
             </h1>
@@ -9851,7 +9852,7 @@ export default function Trade() {
 
                 <label
                   htmlFor="stacking"
-                  className="mt-4 block text-sm font-medium text-white"
+                  className="mt-4 text-center block text-sm font-medium text-white"
                 >
                   Select Stacking Option
                 </label>
@@ -9881,13 +9882,13 @@ export default function Trade() {
                 </button>
                 <div>
                   {selectedOption === "1" && (
-                    <p className="text-white">120 Days Stacking</p>
+                    <p className="text-white text-center">120 Days Stacking</p>
                   )}
                   {selectedOption === "2" && (
-                    <p className="text-white">90 Days Stacking</p>
+                    <p className="text-white  text-center">90 Days Stacking</p>
                   )}
                   {selectedOption === "3" && (
-                    <p className="text-white">45 Days Stacking</p>
+                    <p className="text-white  text-center">45 Days Stacking</p>
                   )}
                 </div>
               </div>
