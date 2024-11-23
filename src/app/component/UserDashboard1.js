@@ -2722,7 +2722,7 @@ const UserDashboard1 = () => {
         {/* Left Side: Connect Wallet Button */}
         <div className="w-full md:w-1/3 p-10 shadow-md rounded-lg">
           <h2 className="text-xl font-semibold mb-6">User Dashboard</h2>
-          <div className="w-full  bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
+          <div className="w-auto  bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Your Address</p>
             <p className="text-center">
               {" "}

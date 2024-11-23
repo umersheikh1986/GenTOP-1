@@ -12,7 +12,7 @@ import IndividualLevel from "./component/individuallevel";
 export default function Home() {
   return (
     <main>
-      <HomePageHeader />
+      {/* <HomePageHeader /> */}
       <HeroSection />
       <Solidarity />
       <Mentality />

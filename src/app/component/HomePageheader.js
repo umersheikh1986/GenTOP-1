@@ -136,7 +136,7 @@ function HomePageHeader() {
               {walletAddress ? shortenAddress(walletAddress) : "Connect Wallet"}
             </button> */}
             <Link
-              href="/"
+              href="/trade"
               className="text-white border border-white p-4 rounded-lg"
             >
               Menu

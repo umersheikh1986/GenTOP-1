@@ -3,8 +3,8 @@ function HeroSection() {
   return (
     <div className="grid grid-rows-1 justify-center items-center pb-20 pt-20  bg-[url('/backgroundimage.png')]">
       <section>
-        <div className="border-b- border-b-white rounded-[50%]">
-          <div className="relative border-b- rounded-[50%] border-b-white  z-30 h-[250px] w-[560px] mx-auto mt-20 mb-20 flex items-center justify-center">
+        <div className="">
+          <div className="relative border-b- rounded-[50%] border-b-white   h-[250px] w-[560px] mx-auto mt-20 mb-20 flex items-center justify-center">
             {/* Base Image */}
             <Image
               src="/Gft-1.png"
@@ -37,7 +37,9 @@ function HeroSection() {
           <div className="w-[560px]">
             <hr className=" " />
             <p className="text-center text-white">
-           Tokens will not be offered or sold in the United States of America or to U.S. persons and other prohibited persons. See important considerations on page 1 of the White Paper. 
+              Tokens will not be offered or sold in the United States of America
+              or to U.S. persons and other prohibited persons. See important
+              considerations on page 1 of the White Paper.
             </p>
           </div>
         </div>
