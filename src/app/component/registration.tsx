@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from 'next/link'
+import Link from "next/link";
 
 function Registration() {
   return (
@@ -16,11 +16,11 @@ function Registration() {
                   height={300}
                   alt="FlowBite Logo"
                 />
-            
-              <p className="self-center text-2xl font-semibold text-white">
-              Buy Tokens
-              </p>
-                  </Link>
+
+                <p className="self-center text-2xl font-semibold text-white">
+                  Buy Tokens
+                </p>
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
               <div>
@@ -49,10 +49,7 @@ function Registration() {
                 </h2>
                 <ul className=" text-white font-medium">
                   <li className="mb-4">
-                    <a
-                      href="/"
-                      className="hover:underline "
-                    >
+                    <a href="/" className="hover:underline ">
                       Github
                     </a>
                   </li>
