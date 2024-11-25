@@ -487,7 +487,7 @@ function HomeHeader() {
                     className="block py-3 px-3"
                     onClick={toggleRoute}
                   >
-                    Dashboard
+                    Stacking
                   </Link>
                 )}
               </li>
