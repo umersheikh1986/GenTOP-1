@@ -2775,7 +2775,7 @@ const UserDashboard1 = () => {
                       Stacking
                     </th>
                     <th className="border px-8 py-8 text-[#9168BF]">
-                      Upto Date Rewards
+                      Up To Date Rewards
                     </th>
                     <th className="border px-8 py-8 text-[#9168BF]">Plan</th>
                     <th className="border px-8 py-8 text-[#9168BF]">Status</th>

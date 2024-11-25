@@ -9832,7 +9832,7 @@ export default function Trade() {
               </a>
             </div>
             <hr className="ml-10 " />
-            <h1 className="text-white ml-5">
+            <h1 className="text-white text-center   ml-5">
               {usdtBalance !== null && <p>USDT Balance: {usdtBalance} USDT</p>}
             </h1>
             <div className="relative flex flex-col text-gray-700 bg-[#14000b] shadow-md w-96 rounded-xl bg-clip-border">
