@@ -344,6 +344,10 @@ function HomeHeader() {
     useContext(WalletContext);
 
   const [isDashboard, setIsDashboard] = useState(false);
+  const [whitePaper, setwhitePaper] = useState(false);
+  const [audit, setAudit] = useState(false);
+  const [home, setHome] = useState(false);
+
   const [isBuy, setBuy] = useState(false);
   // const [walletAddress, setWalletAddress] = useState("");
   // const [signer, setSigner] = useState("");
@@ -398,14 +402,18 @@ function HomeHeader() {
   const toggleRoute = () => {
     setIsDashboard((prevState) => !prevState); // Toggle between "Buy" and "Dashboard"
   };
+  const toggleRoute1 = () => {
+    setwhitePaper((prevState) => !prevState);
+  };
+  const toggleRoute2 = () => {
+    setAudit((prevState) => !prevState);
+  };
+
   return (
     <div>
       <nav className=" bg-[#14000b] font-san fixed w-full z-20 top-0 start-0 border-b ">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-          <div
-            href="/"
-            className="flex items-center space-x-3 rtl:space-x-reverse"
-          >
+          <div className="flex items-center space-x-3 rtl:space-x-reverse">
             {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo"/> */}
             <Link href="/">
               <Image
@@ -458,25 +466,59 @@ function HomeHeader() {
           >
             <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 text-white text-xl rounded-lg bg-[#14000b] md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
               <li>
-                <a href="/" className="block py-3 px-3 " aria-current="page">
+                <Link href="/" className="block py-3 px-3 " aria-current="page">
                   Home
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="/Audit" className="block py-3 px-3 ">
+                {/* <a href="/Audit" className="block py-3 px-3 ">
                   Audit
-                </a>
+                </a> */}
+                {!whitePaper ? (
+                  <Link
+                    href="/Audit"
+                    className="block py-3  cursor-pointer px-3"
+                    onClick={toggleRoute1}
+                  >
+                    Audit
+                  </Link>
+                ) : (
+                  <Link
+                    href="/Audit"
+                    className="block cursor-pointer py-3 px-3"
+                    onClick={toggleRoute1}
+                  >
+                    Audit
+                  </Link>
+                )}
               </li>
               <li>
-                <a href="/whitePaper" className="block py-3 px-3   ">
+                {/* <a href="/whitePaper" className="block py-3 px-3   ">
                   White Paper
-                </a>
+                </a> */}
+                {!audit ? (
+                  <Link
+                    href="/whitePaper"
+                    className="block py-3 cursor-pointer px-3"
+                    onClick={toggleRoute2}
+                  >
+                    whitePaper
+                  </Link>
+                ) : (
+                  <Link
+                    href="/whitePaper"
+                    className="block py-3 px-3 cursor-pointer"
+                    onClick={toggleRoute2}
+                  >
+                    whitePaper
+                  </Link>
+                )}
               </li>
               <li>
                 {!isDashboard ? (
                   <Link
                     href="/trade"
-                    className="block py-3 px-3"
+                    className="block py-3 cursor-pointer px-3"
                     onClick={toggleRoute}
                   >
                     Buy
@@ -484,7 +526,7 @@ function HomeHeader() {
                 ) : (
                   <Link
                     href="/userDashboard"
-                    className="block py-3 px-3"
+                    className="block py-3 cursor-pointer px-3"
                     onClick={toggleRoute}
                   >
                     Stacking
