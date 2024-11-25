@@ -2735,7 +2735,7 @@ const UserDashboard1 = () => {
           </div>
           <div className=" mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Rewards</p>
-            <p className="text-center"> {totalUptoDateRewardSum}</p>
+            <p className="text-center">{`${totalUptoDateRewardSum}0`}</p>
           </div>
           {loading ? (
             <p>Loading purchases...</p>
