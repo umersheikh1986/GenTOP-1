@@ -1,7 +1,7 @@
 import Image from "next/image";
 function HeroSection() {
   return (
-    <div className="grid grid-rows-1 justify-center items-center pb-20 pt-20  bg-[url('/backgroundimage.png')]">
+    <div className="grid grid-rows-1 justify-center items-center pb-20 pt-20 mt-20 bg-[url('/backgroundimage.png')]">
       <section>
         <div className="">
           <div className="relative border-b- rounded-[50%] border-b-white   h-[250px] w-[560px] mx-auto mt-20 mb-20 flex items-center justify-center">
@@ -16,10 +16,10 @@ function HeroSection() {
 
             {/* Main Logo */}
             <Image
-              src="/logo1.png"
+              src="/logo-3.png"
               alt="logo"
-              width={300}
-              height={300}
+              width={500}
+              height={500}
               className="absolute  animate-moveUpDown"
             />
 
