@@ -9854,7 +9854,7 @@ export default function Trade() {
                   htmlFor="stacking"
                   className="mt-4 text-center block text-sm font-medium text-white"
                 >
-                  Select Stacking Option
+                  Select Staking Option
                 </label>
                 <select
                   id="stacking"

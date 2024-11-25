@@ -529,7 +529,7 @@ function HomeHeader() {
                     className="block py-3 cursor-pointer px-3"
                     onClick={toggleRoute}
                   >
-                    Stacking
+                    Staking
                   </Link>
                 )}
               </li>

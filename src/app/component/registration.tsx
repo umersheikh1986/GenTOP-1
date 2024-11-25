@@ -25,12 +25,12 @@ function Registration() {
             <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
               <div>
                 <h2 className="mb-6  text-2xl font-semibold text-white">
-                  Resources
+                  HOME
                 </h2>
                 <ul className="text-white font-medium">
                   <li className="mb-4">
-                    <a href="/" className="hover:underline">
-                      Flowbite
+                    <a href="/#" className="hover:underline">
+                      Our Coumunity
                     </a>
                   </li>
                   <li>
