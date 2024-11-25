@@ -409,7 +409,7 @@ function HomeHeader() {
             {/* <img src="https://flowbite.com/docs/images/logo.svg" className="h-8" alt="Flowbite Logo"/> */}
             <Link href="/">
               <Image
-                src="/logo-3.png"
+                src="/logo3.png"
                 width={10000}
                 height={10000}
                 alt="Picture of the Logo"
