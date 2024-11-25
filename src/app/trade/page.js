@@ -9839,20 +9839,20 @@ export default function Trade() {
               <div className="max-w-md mx-auto bg-[#14000b] p-6 rounded-lg shadow-lg">
                 <label
                   htmlFor="usdt"
-                  className="block text-sm font-medium text-white"
+                  className="block text-sm text-center font-medium text-white"
                 >
                   Enter USDT
                 </label>
                 <input
                   type="number"
                   onChange={(e) => setUsdtAmount(e.target.value)} /// parse ether test
-                  className="mt-2 block  px-2 py-2 border text-[#14000b] w-96 border-gray-300 rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
+                  className="mt-2 block text-center  px-2 py-2 border text-[#14000b] w-96 border-gray-300 rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
                   placeholder="Enter amount in USDT"
                 />
 
                 <label
                   htmlFor="stacking"
-                  className="mt-4 text-center block text-sm font-medium text-white"
+                  className="mt-4 text-center  block text-sm font-medium text-white"
                 >
                   Select Staking Option
                 </label>
