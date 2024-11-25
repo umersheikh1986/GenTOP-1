@@ -20,12 +20,7 @@ const Mentality = () => {
           </p>
 
           <div className="py-4 flex justify-center">
-            <Image
-              src={`/Big-Gentop.png`}
-              alt="bitcoin"
-              width={400}
-              height={400}
-            />
+            <Image src={`/Logo3.png`} alt="bitcoin" width={400} height={400} />
           </div>
         </div>
 
