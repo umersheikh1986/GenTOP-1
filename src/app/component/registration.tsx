@@ -10,7 +10,7 @@ function Registration() {
             <div className="mb-6 md:mb-0 flex flex-col">
               <Link href="/trade" className="flex items-center">
                 <Image
-                  src="/logo1.png"
+                  src="/Logo3.png"
                   className=" "
                   width={100}
                   height={300}
