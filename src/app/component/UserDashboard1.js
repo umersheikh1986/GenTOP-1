@@ -3161,7 +3161,7 @@ const UserDashboard1 = () => {
                         colSpan="5"
                         className="border px-8 py-4 text-center text-red-500"
                       >
-                        No purchase data found.
+                        <p className="text-yellow-500">Loading...</p>
                       </td>
                     </tr>
                   )}
