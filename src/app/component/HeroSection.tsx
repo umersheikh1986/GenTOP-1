@@ -16,7 +16,7 @@ function HeroSection() {
 
             {/* Main Logo */}
             <Image
-              src="/logo3.png"
+              src="/Logo3.png"
               alt="logo"
               width={600}
               height={600}
