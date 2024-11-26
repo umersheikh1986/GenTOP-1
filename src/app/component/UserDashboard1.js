@@ -2740,7 +2740,7 @@ const UserDashboard1 = () => {
             </p>
           </div>
           <div className=" mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
-            <p className="text-center">Total Gentop Stacked</p>
+            <p className="text-center">Total Gentop Staked</p>
             <p className="text-center"> {totalStakingRewardSum}</p>
           </div>
           <div className=" mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
