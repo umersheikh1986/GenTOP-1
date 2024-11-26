@@ -2013,13 +2013,13 @@
 // //                 />
 
 // //                 <label
-// //                   htmlFor="stacking"
+// //                   htmlFor="staking"
 // //                   className="mt-4 block text-sm font-medium text-white"
 // //                 >
-// //                   Select Stacking Option
+// //                   Select staking Option
 // //                 </label>
 // //                 <select
-// //                   id="stacking"
+// //                   id="staking"
 // //                   value={selectedOption}
 // //                   className="mt-2 block w-full px-3 py-2 border text-center  text-[#14000b] font-bold border-white rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
 // //                   onChange={(e) => setSelectedOption(e.target.value)}
@@ -2044,13 +2044,13 @@
 // //                 </button>
 // //                 <div>
 // //                   {selectedOption === "1" && (
-// //                     <p className="text-white">120 Days Stacking</p>
+// //                     <p className="text-white">120 Days staking</p>
 // //                   )}
 // //                   {selectedOption === "2" && (
-// //                     <p className="text-white">90 Days Stacking</p>
+// //                     <p className="text-white">90 Days staking</p>
 // //                   )}
 // //                   {selectedOption === "3" && (
-// //                     <p className="text-white">45 Days Stacking</p>
+// //                     <p className="text-white">45 Days staking</p>
 // //                   )}
 // //                 </div>
 // //               </div>
@@ -4079,13 +4079,13 @@
 // //                 />
 
 // //                 <label
-// //                   htmlFor="stacking"
+// //                   htmlFor="staking"
 // //                   className="mt-4 block text-sm font-medium text-white"
 // //                 >
-// //                   Select Stacking Option
+// //                   Select staking Option
 // //                 </label>
 // //                 <select
-// //                   id="stacking"
+// //                   id="staking"
 // //                   value={selectedOption}
 // //                   className="mt-2 block w-full px-3 py-2 border text-center  text-[#14000b] font-bold border-white rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
 // //                   onChange={(e) => setSelectedOption(e.target.value)}
@@ -4110,13 +4110,13 @@
 // //                 </button>
 // //                 <div>
 // //                   {selectedOption === "1" && (
-// //                     <p className="text-white">120 Days Stacking</p>
+// //                     <p className="text-white">120 Days staking</p>
 // //                   )}
 // //                   {selectedOption === "2" && (
-// //                     <p className="text-white">90 Days Stacking</p>
+// //                     <p className="text-white">90 Days staking</p>
 // //                   )}
 // //                   {selectedOption === "3" && (
-// //                     <p className="text-white">45 Days Stacking</p>
+// //                     <p className="text-white">45 Days staking</p>
 // //                   )}
 // //                 </div>
 // //               </div>
@@ -6993,13 +6993,13 @@
 //                 />
 
 //                 <label
-//                   htmlFor="stacking"
+//                   htmlFor="staking"
 //                   className="mt-4 block text-sm font-medium text-white"
 //                 >
-//                   Select Stacking Option
+//                   Select staking Option
 //                 </label>
 //                 <select
-//                   id="stacking"
+//                   id="staking"
 //                   value={selectedOption}
 //                   className="mt-2 block w-full px-3 py-2 border text-center  text-[#14000b] font-bold border-white rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
 //                   onChange={(e) => setSelectedOption(e.target.value)}
@@ -7024,13 +7024,13 @@
 //                 </button>
 //                 <div>
 //                   {selectedOption === "1" && (
-//                     <p className="text-white">120 Days Stacking</p>
+//                     <p className="text-white">120 Days staking</p>
 //                   )}
 //                   {selectedOption === "2" && (
-//                     <p className="text-white">90 Days Stacking</p>
+//                     <p className="text-white">90 Days staking</p>
 //                   )}
 //                   {selectedOption === "3" && (
-//                     <p className="text-white">45 Days Stacking</p>
+//                     <p className="text-white">45 Days staking</p>
 //                   )}
 //                 </div>
 //               </div>
@@ -9851,13 +9851,13 @@ export default function Trade() {
                 />
 
                 <label
-                  htmlFor="stacking"
+                  htmlFor="staking"
                   className="mt-4 text-center  block text-sm font-medium text-white"
                 >
                   Select Staking Option
                 </label>
                 <select
-                  id="stacking"
+                  id="staking"
                   value={selectedOption}
                   className="mt-2 block w-full px-3 py-2 border text-center  text-[#14000b] font-bold border-white rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
                   onChange={(e) => setSelectedOption(e.target.value)}
