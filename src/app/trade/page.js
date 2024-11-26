@@ -9882,13 +9882,13 @@ export default function Trade() {
                 </button>
                 <div>
                   {selectedOption === "1" && (
-                    <p className="text-white text-center">120 Days Stacking</p>
+                    <p className="text-white text-center">120 Days Staking</p>
                   )}
                   {selectedOption === "2" && (
-                    <p className="text-white  text-center">90 Days Stacking</p>
+                    <p className="text-white  text-center">90 Days Staking</p>
                   )}
                   {selectedOption === "3" && (
-                    <p className="text-white  text-center">45 Days Stacking</p>
+                    <p className="text-white  text-center">45 Days Staking</p>
                   )}
                 </div>
               </div>
