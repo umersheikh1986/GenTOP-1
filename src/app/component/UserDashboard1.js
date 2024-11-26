@@ -1723,7 +1723,7 @@ const UserDashboard1 = () => {
         //   walletAddress,
         //   i
         // );
-        const currentRewards = JoiningAmount;
+        // const currentRewards = JoiningAmount;
         // const isRewardClaimed = statusOfReward; // Assuming statusOfReward returns true/false
 
         const stakingReward = totalReward / 1e18; // Convert reward from wei
@@ -2745,7 +2745,7 @@ const UserDashboard1 = () => {
           </div>
           <div className=" mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Rewards</p>
-            <p className="text-center">{`${totalUptoDateRewardSum}0`}</p>
+            <p className="text-center">{`${totalUptoDateRewardSum}`}</p>
           </div>
           {loading ? (
             <p>Loading purchases...</p>
@@ -2803,7 +2803,7 @@ const UserDashboard1 = () => {
                         </td>
                         <td className="border px-20 py-4  text-[#F7CE3C] font-bold">
                           {data.uptoDateRewards
-                            ? `${data.uptoDateRewards}`
+                            ? `${data.uptoDateRewards.toFixed(0)}`
                             : "No Data Found"}
                         </td>
                         <td className="border px-10 py-4 text-[#F7CE3C] font-bold">
