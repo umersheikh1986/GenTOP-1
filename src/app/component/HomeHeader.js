@@ -349,6 +349,8 @@ function HomeHeader() {
   const [home, setHome] = useState(false);
 
   const [isBuy, setBuy] = useState(false);
+  const [isStaking, setStaking] = useState(false);
+
   // const [walletAddress, setWalletAddress] = useState("");
   // const [signer, setSigner] = useState("");
   const connectWallet = async () => {
@@ -407,6 +409,9 @@ function HomeHeader() {
   };
   const toggleRoute2 = () => {
     setAudit((prevState) => !prevState);
+  };
+  const toggleRout3 = () => {
+    setStaking((prevState) => !prevState);
   };
 
   return (
@@ -525,9 +530,28 @@ function HomeHeader() {
                   </Link>
                 ) : (
                   <Link
-                    href="/userDashboard"
+                    href="/trade"
                     className="block py-3 cursor-pointer px-3"
                     onClick={toggleRoute}
+                  >
+                    Buy
+                  </Link>
+                )}
+              </li>
+              <li>
+                {!isStaking ? (
+                  <Link
+                    href="/userDashboard"
+                    className="block py-3 cursor-pointer px-3"
+                    onClick={toggleRout3}
+                  >
+                    Staking
+                  </Link>
+                ) : (
+                  <Link
+                    href="/userDashboard"
+                    className="block py-3 cursor-pointer px-3"
+                    onClick={toggleRout3}
                   >
                     Staking
                   </Link>
