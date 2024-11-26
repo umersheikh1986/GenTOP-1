@@ -1704,23 +1704,33 @@ const UserDashboard1 = () => {
 
       for (let i = 1; i <= numPurchases; i++) {
         // const statusOfReward = await contract.userPurchasesS(walletAddress, i);
+        const [userAdd, JoinTime, JoiningAmount, Percenatge] =
+          await contract1.getUserData(walletAddress, i);
+        console.log(
+          "This is joining Amount from fetching Details function",
+          Number(JoiningAmount)
+        );
         const [joinTime, EndTime, totalReward] = await contract.GetUserData(
           walletAddress,
           i
         );
+
         const statusOfReward = await contract.userPurcahasesS(walletAddress, i); // Fetch reward status
         // console.log("This is status of reward", Number(statusOfReward));
         console.log("This is Endtime from Fetch Details", EndTime);
         const ENDTIME = Number(EndTime);
-        const currentRewards = await contract.checkCumulativeReward(
-          walletAddress,
-          i
-        );
+        // const currentRewards = await contract.checkCumulativeReward(
+        //   walletAddress,
+        //   i
+        // );
+        const currentRewards = JoiningAmount;
         // const isRewardClaimed = statusOfReward; // Assuming statusOfReward returns true/false
 
         const stakingReward = totalReward / 1e18; // Convert reward from wei
-        const uptoDateReward = parseFloat(
-          ethers.utils.formatEther(currentRewards)
+        const uptoDateReward = Number(JoiningAmount / 1e18);
+        console.log(
+          "This is stored value of joining Amount in ",
+          uptoDateReward
         );
         totalStakingRewardSum += stakingReward; // Add to the sum
         totalUptoDateRewardSum += uptoDateReward; // Add to up-to-date rewards sum
@@ -1763,7 +1773,7 @@ const UserDashboard1 = () => {
         purchaseData[i] = {
           joiningDate: new Date(Number(joinTime) * 1000).toLocaleString(),
           stacking: (totalReward / 1e18).toFixed(2),
-          uptoDateRewards: ethers.utils.formatEther(currentRewards),
+          uptoDateRewards: uptoDateReward,
           plan,
           status: distance <= 0 ? "Completed" : remainingTime,
           remainingTime,
@@ -1773,7 +1783,7 @@ const UserDashboard1 = () => {
       console.log("Total Staking Reward Sum:", totalStakingRewardSum);
       setPurchaseData(purchaseData); // Save all purchase details to state
       setTotalStakingRewardSum(totalStakingRewardSum.toFixed(2)); // Save sum in state
-      setTotalUptoDateRewardSum(totalUptoDateRewardSum); // Save up-to-date rewards sum in state
+      setTotalUptoDateRewardSum(totalUptoDateRewardSum.toFixed(2)); // Save up-to-date rewards sum in state
 
       setLoading(false);
     } catch (error) {
@@ -2771,9 +2781,7 @@ const UserDashboard1 = () => {
                     <th className="border px-8 py-8 text-[#9168BF]">
                       Joining Date
                     </th>
-                    <th className="border px-8 py-8 text-[#9168BF]">
-                      Stacking
-                    </th>
+                    <th className="border px-8 py-8 text-[#9168BF]">Staking</th>
                     <th className="border px-8 py-8 text-[#9168BF]">
                       Up To Date Rewards
                     </th>
@@ -2794,12 +2802,12 @@ const UserDashboard1 = () => {
                             : "No Data Found"}
                         </td>
                         <td className="border px-20 py-4  text-[#F7CE3C] font-bold">
-                          {data.stacking ? `${data.stacking}` : "No Data Found"}
-                        </td>
-                        <td className="border px-10 py-4 text-[#F7CE3C] font-bold">
                           {data.uptoDateRewards
                             ? `${data.uptoDateRewards}`
                             : "No Data Found"}
+                        </td>
+                        <td className="border px-10 py-4 text-[#F7CE3C] font-bold">
+                          {data.stacking ? `${data.stacking}` : "No Data Found"}
                         </td>
                         <td className="border px-10 py-4 text-[#F7CE3C]">
                           {data.plan}
