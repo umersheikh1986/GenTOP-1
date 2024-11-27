@@ -662,21 +662,6 @@ function HomeHeader() {
               </li>
 
               {/* Additional Links Visible Only on Mobile */}
-              <li className="block md:hidden">
-                <Link href="/about" className="block py-2 px-3">
-                  About Us
-                </Link>
-              </li>
-              <li className="block md:hidden">
-                <Link href="/contact" className="block py-2 px-3">
-                  Contact
-                </Link>
-              </li>
-              <li className="block md:hidden">
-                <Link href="/faq" className="block py-2 px-3">
-                  FAQ
-                </Link>
-              </li>
             </ul>
           </div>
         </div>

@@ -8958,18 +8958,20 @@ export default function Trade() {
       );
 
       const amountToApprove = ethers.utils.parseEther(usdtAmount);
-      if (amountToApprove < 10) {
-        alert("Please Enter Amount greater or equal to 10  ");
-      }
-      const tx = await usdtContract.approve(
-        "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
-        amountToApprove
-      );
-      console.log("Approval transaction hash:", tx.hash);
-      setTransactionHash(tx.hash); // Store transaction hash
+      if (usdtAmount >= 10) {
+        const tx = await usdtContract.approve(
+          "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
+          amountToApprove
+        );
+        console.log("Approval transaction hash:", tx.hash);
+        setTransactionHash(tx.hash); // Store transaction hash
 
-      // Wait for transaction to be confirmed
-      await tx.wait();
+        // Wait for transaction to be confirmed
+        await tx.wait();
+      } else {
+        alert("Value must be greater or equal to 10 ");
+        setUsdtAmount("Enter USDT");
+      }
     } catch (error) {
       console.log("Error approving USDT:", error);
     }
