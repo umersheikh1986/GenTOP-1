@@ -29,53 +29,37 @@ function Registration() {
                 </h2>
                 <ul className="text-white font-medium">
                   <li className="mb-4">
-                    <a href="/#" className="hover:underline">
-                      Our Coumunity
-                    </a>
+                    <div className="hover:underline ">Our Coumunity</div>
                   </li>
                   <li>
-                    <a
-                      href="https://tailwindcss.com/"
-                      className="hover:underline"
-                    >
-                      Tailwind CSS
-                    </a>
+                    <div className="hover:underline">Gentop Tokens</div>
+                  </li>
+                </ul>
+              </div>
+              <div>
+                <h2 className="mb-6 text-2xl font-semibold text-white">Buy</h2>
+                <ul className=" text-white font-medium">
+                  <li className="mb-4">
+                    <div className="hover:underline ">Approve</div>
+                  </li>
+                  <li>
+                    <div className="hover:underline">Buy Tokens</div>
                   </li>
                 </ul>
               </div>
               <div>
                 <h2 className="mb-6 text-2xl font-semibold text-white">
-                  Follow us
-                </h2>
-                <ul className=" text-white font-medium">
-                  <li className="mb-4">
-                    <a href="/" className="hover:underline ">
-                      Github
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="https://discord.gg/4eeurUVvTy"
-                      className="hover:underline"
-                    >
-                      Discord
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h2 className="mb-6 text-2xl font-semibold text-white">
-                  Legal
+                  Staking
                 </h2>
                 <ul className=" text-white font-medium">
                   <li className="mb-4">
                     <a href="#" className="hover:underline">
-                      Privacy Policy
+                      Bronze
                     </a>
                   </li>
                   <li>
                     <a href="#" className="hover:underline">
-                      Terms &amp; Conditions
+                      Silver &amp; Gold
                     </a>
                   </li>
                 </ul>
