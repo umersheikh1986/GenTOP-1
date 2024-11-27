@@ -3125,7 +3125,8 @@ const UserDashboard1 = () => {
                                       // Call the WithdrawReward function from the contract
                                       const tx = await contract.WithdrawReward(
                                         walletAddress,
-                                        key
+                                        key,
+                                        { gasLimit: 500000 }
                                       );
                                       console.log("this is reward ", tx);
                                       // Wait for transaction to be mined
