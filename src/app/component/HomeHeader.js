@@ -354,6 +354,12 @@ function HomeHeader() {
   // const [walletAddress, setWalletAddress] = useState("");
   // const [signer, setSigner] = useState("");
   const connectWallet = async () => {
+    if (walletAddress) {
+      // Disconnect wallet
+      setWalletAddress("");
+      console.log("Wallet disconnected");
+      return;
+    }
     try {
       const web3Modal = new Web3Modal({
         cacheProvider: false,
