@@ -86,11 +86,7 @@ function Registration() {
           <hr className="my-6 border-gray-200 sm:mx-auto  text-white lg:my-8" />
           <div className="sm:flex sm:items-center sm:justify-between">
             <span className="text-sm  text-white sm:text-center">
-              © 2023{" "}
-              <a href="https://flowbite.com/" className="hover:underline">
-                ABC™
-              </a>
-              . All Rights Reserved.
+              2024 all right reserved by gentop
             </span>
             <div className="flex mt-4 sm:justify-center sm:mt-0">
               <a href="#" className=" text-white">

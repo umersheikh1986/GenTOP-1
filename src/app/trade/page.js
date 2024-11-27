@@ -9827,13 +9827,9 @@ export default function Trade() {
               </button>
             </div>
             <div className="block   items-center justify-center  mb-4 ml-10  border-slate-300 pb-2 max-w-[360px]">
-              <a
-                target="_blank"
-                href="https://www.material-tailwind.com/docs/html/card"
-                className="block w-full px-4 py-2 text-center text-white transition-all"
-              >
+              <div className="block w-full px-4 py-2 text-center text-white transition-all">
                 Buy Your Own <b>Gentop Token</b>.
-              </a>
+              </div>
             </div>
             <hr className="ml-10 " />
             <h1 className="text-white text-center   ml-5">
