@@ -1,17 +1,83 @@
 import Image from "next/image";
 function HeroSection() {
   return (
-    <div className="grid grid-rows-1 justify-center items-center pb-20 pt-20 mt-10 bg-[url('/backgroundimage.png')]">
+    // <div className="grid grid-rows-1 justify-center items-center pb-20 pt-20 mt-10 bg-[url('/backgroundimage.png')]">
+    //   <section>
+    //     <div className="">
+    //       <div className="relative border-b- rounded-[50%] border-b-white   h-[250px] w-[560px] mx-auto mt-20 mb-20 flex items-center justify-center">
+    //         {/* Base Image */}
+    //         <Image
+    //           src="/Gft-1.png"
+    //           width={550}
+    //           height={550}
+    //           alt="gtf-img"
+    //           className="absolute mt-6   "
+    //         />
+
+    //         {/* Main Logo */}
+    //         <Image
+    //           src="/Logo3.png"
+    //           alt="logo"
+    //           width={600}
+    //           height={600}
+    //           className="absolute  animate-moveUpDown"
+    //         />
+
+    //         {/* Overlay Image */}
+    //         <Image
+    //           src="/gentop-6.png"
+    //           alt="overlay"
+    //           width={524}
+    //           height={550}
+    //           className="ml-3 absolute  "
+    //         />
+
+    //         {/* <div className="absolute z-10 bottom-[-50px] w-[300px] h-[20px] bg-blue-500 rounded-full"></div> */}
+    //       </div>
+    //       <div className="w-[560px]">
+    //         <hr className=" " />
+    //         <p className="text-center text-white">
+    //           Tokens will not be offered or sold in the United States of America
+    //           or to U.S. persons and other prohibited persons. See important
+    //           considerations on page 1 of the White Paper.
+    //         </p>
+    //       </div>
+    //     </div>
+
+    //     {/* <div className="text-center text-3xl md:text-7xl font-extrabold pb-10"> */}
+    //     {/* <div>
+    //       {/* <p className="text-center ">
+    //         {" "}
+    //         Lorem Ipsum is simply dummy text of the printing and typesetting
+    //         industry. since the 1500s,
+    //       </p> */}
+    //     {/* <h1>Tokens</h1> */}
+    //     {/* </div> */}
+    //     {/* <div className="text-center text-sm md:text-xl">
+    //       <h2 className="text-amber-400">
+    //         {" "}
+    //         Lorem Ipsum is simply dummy text of the printing and typesetting
+    //         industry. since the 1500s,
+    //       </h2>
+    //     </div> */}
+    //     {/* <div className="relative bg-blue-500 h-64 w-full">
+    //       <div className="absolute top-0 w-full h-32 bg-white clip-path-custom-bottom">
+    //         <div className="h-full w-full bg-blue-500"></div>
+    //       </div>
+    //     </div> */}
+    //   </section>
+    // </div>
+    <div className="grid grid-rows-1 justify-center items-center pb-10  pt-10 bg-[url('/backgroundimage.png')] bg-cover bg-center">
       <section>
-        <div className="">
-          <div className="relative border-b- rounded-[50%] border-b-white   h-[250px] w-[560px] mx-auto mt-20 mb-20 flex items-center justify-center">
+        <div className="mt-20 pt-10">
+          <div className="relative border-b rounded-full  h-[250px] w-[90%] md:w-[560px] mx-auto mt-10 mb-10 flex items-center justify-center">
             {/* Base Image */}
             <Image
               src="/Gft-1.png"
               width={550}
               height={550}
               alt="gtf-img"
-              className="absolute mt-6   "
+              className="absolute mt-6 w-[80%] md:w-[550px]"
             />
 
             {/* Main Logo */}
@@ -20,7 +86,7 @@ function HeroSection() {
               alt="logo"
               width={600}
               height={600}
-              className="absolute  animate-moveUpDown"
+              className="absolute w-[60%] md:w-[600px] animate-moveUpDown"
             />
 
             {/* Overlay Image */}
@@ -29,42 +95,19 @@ function HeroSection() {
               alt="overlay"
               width={524}
               height={550}
-              className="ml-3 absolute  "
+              className="absolute w-[70%] md:w-[524px] ml-3"
             />
-
-            {/* <div className="absolute z-10 bottom-[-50px] w-[300px] h-[20px] bg-blue-500 rounded-full"></div> */}
           </div>
-          <div className="w-[560px]">
-            <hr className=" " />
-            <p className="text-center text-white">
+
+          <div className="w-[90%] md:w-[560px] mx-auto">
+            <hr className="" />
+            <p className="text-center text-sm md:text-base text-white mt-4">
               Tokens will not be offered or sold in the United States of America
               or to U.S. persons and other prohibited persons. See important
               considerations on page 1 of the White Paper.
             </p>
           </div>
         </div>
-
-        {/* <div className="text-center text-3xl md:text-7xl font-extrabold pb-10"> */}
-        {/* <div>
-          {/* <p className="text-center ">
-            {" "}
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. since the 1500s,
-          </p> */}
-        {/* <h1>Tokens</h1> */}
-        {/* </div> */}
-        {/* <div className="text-center text-sm md:text-xl">
-          <h2 className="text-amber-400">
-            {" "}
-            Lorem Ipsum is simply dummy text of the printing and typesetting
-            industry. since the 1500s,
-          </h2>
-        </div> */}
-        {/* <div className="relative bg-blue-500 h-64 w-full">
-          <div className="absolute top-0 w-full h-32 bg-white clip-path-custom-bottom">
-            <div className="h-full w-full bg-blue-500"></div>
-          </div>
-        </div> */}
       </section>
     </div>
   );
