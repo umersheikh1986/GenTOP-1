@@ -1214,8 +1214,8 @@ import Image from "next/image";
 
 const usdtAddress = "0x2dac9264BCb152c49fBe12cA45d84621fF91e8AA"; // Replace with Contract 1 address
 const gentopAddress = "0x67Cd96b18747333f01668976bF4dF6d3f4a517c3"; // Replace with Contract 2 address
-const stakingContractAddress = "0x47F564607D6aCA3e2bDeaB4e09E8133b4dB86f13"; // Replace with Contract 3 address
-const preSaleContractAddress = "0xE6627fb6916e40D438068f6106B674Dba8CAb3CA";
+const stakingContractAddress = "0x17447a18aC996AD1B3B6EC6F3160481D6030a323"; // Replace with Contract 3 address
+const preSaleContractAddress = "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597";
 
 const UserDashboard1 = () => {
   // const [walletAddress, setWalletAddress] = useState(null);
@@ -1249,16 +1249,16 @@ const UserDashboard1 = () => {
 
   // Staking contract address and ABI
   console.log("this is endtime from UseSTate", Number(endTime));
-  const contractAddress = "0x47F564607D6aCA3e2bDeaB4e09E8133b4dB86f13"; // Replace with actual staking contract address
+  const contractAddress = "0x17447a18aC996AD1B3B6EC6F3160481D6030a323"; // Replace with actual staking contract address
 
-  const preSaleContractAddress = "0xE6627fb6916e40D438068f6106B674Dba8CAb3CA";
+  const preSaleContractAddress = "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597";
 
   async function fetchStakingDetails() {
     try {
       // Define the presale contract
       const preSaleABI = []; // Provide the actual ABI here
       const contract1 = new ethers.Contract(
-        "0xE6627fb6916e40D438068f6106B674Dba8CAb3CA",
+        "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
         [
           {
             inputs: [
@@ -1528,7 +1528,7 @@ const UserDashboard1 = () => {
       setPurchaseArray(purchases);
 
       const contract = new ethers.Contract(
-        "0x47F564607D6aCA3e2bDeaB4e09E8133b4dB86f13",
+        "0x17447a18aC996AD1B3B6EC6F3160481D6030a323",
         [
           {
             inputs: [
@@ -2500,7 +2500,7 @@ const UserDashboard1 = () => {
         },
       ];
       const contract1 = new ethers.Contract(
-        "0xE6627fb6916e40D438068f6106B674Dba8CAb3CA",
+        "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
         preSaleABI,
         signer
       );
@@ -3155,7 +3155,7 @@ const UserDashboard1 = () => {
                                 ) : data.rewardStatuses === 2 ? ( // If rewardStatuses is 2, show "Closed"
                                   "Closed"
                                 ) : null)
-                              : "No Data Found"
+                              : data.status
                             : "No Data Found"}
                         </td>
                         {/* <td className="border px-10 py-4 text-[#F7CE3C] font-bold">
