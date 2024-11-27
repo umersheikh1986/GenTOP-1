@@ -8958,7 +8958,9 @@ export default function Trade() {
       );
 
       const amountToApprove = ethers.utils.parseEther(usdtAmount);
-
+      if (amountToApprove < 10) {
+        alert("Please Enter Amount greater or equal to 10  ");
+      }
       const tx = await usdtContract.approve(
         "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
         amountToApprove
