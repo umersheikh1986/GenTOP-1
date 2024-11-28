@@ -355,6 +355,9 @@ function HomeHeader() {
   const toggleNavbar = () => {
     setIsNavbarOpen(!isNavbarOpen);
   };
+  const handleLinkClick = () => {
+    setIsNavbarOpen(false); // Close the menu on link click
+  };
 
   // const [walletAddress, setWalletAddress] = useState("");
   // const [signer, setSigner] = useState("");
@@ -636,27 +639,47 @@ function HomeHeader() {
           >
             <ul className="flex flex-col p-4 mt-4 font-medium border border-gray-100 text-white text-lg rounded-lg bg-[#14000b] md:flex-row md:mt-0 md:border-0 md:space-x-8 rtl:space-x-reverse">
               <li>
-                <Link href="/" className="block py-2 px-3">
+                <Link
+                  href="/"
+                  className="block py-2 px-3"
+                  onClick={handleLinkClick}
+                >
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/Audit" className="block py-2 px-3">
+                <Link
+                  href="/Audit"
+                  className="block py-2 px-3"
+                  onClick={handleLinkClick}
+                >
                   Audit
                 </Link>
               </li>
               <li>
-                <Link href="/whitePaper" className="block py-2 px-3">
+                <Link
+                  href="/whitePaper"
+                  className="block py-2 px-3"
+                  onClick={handleLinkClick}
+                >
                   White Paper
                 </Link>
               </li>
               <li>
-                <Link href="/trade" className="block py-2 px-3">
+                <Link
+                  href="/trade"
+                  className="block py-2 px-3"
+                  onClick={handleLinkClick}
+                >
                   Buy
                 </Link>
               </li>
               <li>
-                <Link href="/userDashboard" className="block py-2 px-3">
+                <Link
+                  href="/userDashboard"
+                  className="block py-2 px-3"
+                  onClick={handleLinkClick}
+                >
                   Staking
                 </Link>
               </li>
