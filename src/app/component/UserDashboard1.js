@@ -1521,7 +1521,7 @@ const UserDashboard1 = () => {
                         No Plan
                       </td>
                       <td className="border px-10 py-4 text-[#F7CE3C] text-center font-bold">
-                        No Data Found
+                        No Status
                       </td>
                     </tr>
                   )}
