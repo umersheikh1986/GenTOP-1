@@ -1138,20 +1138,18 @@ const UserDashboard1 = () => {
                           {key}
                         </td>
                         <td className="border px-10 py-4  text-[#F7CE3C] font-bold">
-                          {data.joiningDate
-                            ? data.joiningDate
-                            : "No Data Found"}
+                          {data.joiningDate ? data.joiningDate : "0"}
                         </td>
                         <td className="border px-20 py-4  text-[#F7CE3C] font-bold">
                           {data.uptoDateRewards
                             ? `${data.uptoDateRewards.toFixed(0)}`
-                            : "No Data Found"}
+                            : "0"}
                         </td>
                         <td className="border px-10 py-4 text-[#F7CE3C] font-bold">
-                          {data.stacking ? `${data.stacking}` : "No Data Found"}
+                          {data.stacking ? `${data.stacking}` : "0"}
                         </td>
                         <td className="border px-10 py-4 text-[#F7CE3C]">
-                          {data.plan}
+                          {data.plan ? `${data.stacking}` : "No Plan"}
                         </td>
                         <td className="border px-10 py-4 text-[#F7CE3C] font-bold">
                           {data.status
@@ -1507,11 +1505,23 @@ const UserDashboard1 = () => {
                     ))
                   ) : (
                     <tr>
-                      <td
-                        colSpan="5"
-                        className="border px-8 py-4 text-center text-red-500"
-                      >
-                        <p className="text-yellow-500">Loading...</p>
+                      <td className="border px-8 py-4 text-[#F7CE3C] text-center font-bold">
+                        0
+                      </td>
+                      <td className="border px-10 py-4 text-[#F7CE3C] text-center font-bold">
+                        0
+                      </td>
+                      <td className="border px-20 py-4 text-[#F7CE3C] text-center font-bold">
+                        0
+                      </td>
+                      <td className="border px-10 py-4 text-[#F7CE3C] text-center font-bold">
+                        0
+                      </td>
+                      <td className="border px-10 py-4 text-[#F7CE3C] text-center font-bold">
+                        No Plan
+                      </td>
+                      <td className="border px-10 py-4 text-[#F7CE3C] text-center font-bold">
+                        No Data Found
                       </td>
                     </tr>
                   )}
