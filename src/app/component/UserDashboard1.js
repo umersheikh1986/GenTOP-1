@@ -1214,7 +1214,7 @@ import Image from "next/image";
 
 const usdtAddress = "0x2dac9264BCb152c49fBe12cA45d84621fF91e8AA"; // Replace with Contract 1 address
 const gentopAddress = "0x67Cd96b18747333f01668976bF4dF6d3f4a517c3"; // Replace with Contract 2 address
-const stakingContractAddress = "0x17447a18aC996AD1B3B6EC6F3160481D6030a323"; // Replace with Contract 3 address
+const stakingContractAddress = "0xc94cDB70F1ec91437C5d22340d5206B4B8928482"; // Replace with Contract 3 address
 const preSaleContractAddress = "";
 
 const UserDashboard1 = () => {
@@ -1249,7 +1249,7 @@ const UserDashboard1 = () => {
 
   // Staking contract address and ABI
   console.log("this is endtime from UseSTate", Number(endTime));
-  const contractAddress = "0x17447a18aC996AD1B3B6EC6F3160481D6030a323"; // Replace with actual staking contract address
+  const contractAddress = "0xc94cDB70F1ec91437C5d22340d5206B4B8928482"; // Replace with actual staking contract address
 
   const preSaleContractAddress = "";
 
@@ -1528,7 +1528,7 @@ const UserDashboard1 = () => {
       setPurchaseArray(purchases);
 
       const contract = new ethers.Contract(
-        "0x17447a18aC996AD1B3B6EC6F3160481D6030a323",
+        "0xc94cDB70F1ec91437C5d22340d5206B4B8928482",
         [
           {
             inputs: [
