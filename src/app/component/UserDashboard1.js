@@ -1215,7 +1215,7 @@ import Image from "next/image";
 const usdtAddress = "0x2dac9264BCb152c49fBe12cA45d84621fF91e8AA"; // Replace with Contract 1 address
 const gentopAddress = "0x67Cd96b18747333f01668976bF4dF6d3f4a517c3"; // Replace with Contract 2 address
 const stakingContractAddress = "0x17447a18aC996AD1B3B6EC6F3160481D6030a323"; // Replace with Contract 3 address
-const preSaleContractAddress = "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597";
+const preSaleContractAddress = "";
 
 const UserDashboard1 = () => {
   // const [walletAddress, setWalletAddress] = useState(null);
@@ -1251,14 +1251,14 @@ const UserDashboard1 = () => {
   console.log("this is endtime from UseSTate", Number(endTime));
   const contractAddress = "0x17447a18aC996AD1B3B6EC6F3160481D6030a323"; // Replace with actual staking contract address
 
-  const preSaleContractAddress = "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597";
+  const preSaleContractAddress = "";
 
   async function fetchStakingDetails() {
     try {
       // Define the presale contract
       const preSaleABI = []; // Provide the actual ABI here
       const contract1 = new ethers.Contract(
-        "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
+        "",
         [
           {
             inputs: [
@@ -2499,11 +2499,7 @@ const UserDashboard1 = () => {
           type: "function",
         },
       ];
-      const contract1 = new ethers.Contract(
-        "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
-        preSaleABI,
-        signer
-      );
+      const contract1 = new ethers.Contract("", preSaleABI, signer);
       const No_Of_Purchases = await contract1.UserPurcahases(walletAddress);
       const numPurchases = Number(No_Of_Purchases);
       const purchases = Array.from(
@@ -2698,7 +2694,7 @@ const UserDashboard1 = () => {
 
       console.log(`${days}d ${hours}h ${minutes}m ${seconds}s`);
 
-      setremainingTime(`${days}d ${hours}h ${minutes}m ${seconds}s`);
+      setremainingTime(`${days} D, ${hours} H, ${minutes} M, ${seconds} S`);
 
       if (distance < 0) {
         clearInterval(interval);
@@ -2732,20 +2728,20 @@ const UserDashboard1 = () => {
         {/* Left Side: Connect Wallet Button */}
         <div className=" md:w-1/4 p-10 shadow-md rounded-lg">
           <h2 className="text-xl font-semibold mb-6">User Dashboard</h2>
-          <div className="  bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
+          <div className="   font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Your Address</p>
             <p className="text-center">
               {" "}
               {walletAddress ? shortenAddress(walletAddress) : ""}
             </p>
           </div>
-          <div className=" mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
+          <div className=" mt-5  font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Gentop Staked</p>
             <p className="text-center"> {totalStakingRewardSum}</p>
           </div>
-          <div className=" mt-5 bg-[#F05B76] font-bold text-white rounded-md border-2 border-white text-lg">
+          <div className=" mt-5  font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Rewards</p>
-            <p className="text-center">{`${totalUptoDateRewardSum}`}</p>
+            <p className="text-center">{totalUptoDateRewardSum}</p>
           </div>
           {loading ? (
             <p>Loading purchases...</p>

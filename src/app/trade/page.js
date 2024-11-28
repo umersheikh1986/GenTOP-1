@@ -9817,7 +9817,7 @@ export default function Trade() {
   return (
     <div>
       <section>
-        <div className=" flex justify-center items-center min-h-screen">
+        <div className=" flex justify-center mx-5 sm:gird grid-cols-1 items-center min-h-screen">
           <div className="max-w-[720px] mx-auto">
             {/* <h1 className="text-white"> Web3Modal connection</h1> */}
             <div className="text-white  ml-10  flex items-center justify-center">
@@ -9826,7 +9826,7 @@ export default function Trade() {
                 {walletAddress}
               </button>
             </div>
-            <div className="block   items-center justify-center  mb-4 ml-10  border-slate-300 pb-2 max-w-[360px]">
+            <div className="block sm:gird grid-cols-1  items-center justify-center  mb-4 ml-10  border-slate-300 pb-2 max-w-[360px]">
               <div className="block w-full px-4 py-2 text-center text-white transition-all">
                 Buy Your Own <b>Gentop Token</b>.
               </div>
@@ -9835,7 +9835,7 @@ export default function Trade() {
             <h1 className="text-white text-center   ml-5">
               {usdtBalance !== null && <p>USDT Balance: {usdtBalance} USDT</p>}
             </h1>
-            <div className="relative flex flex-col text-gray-700 bg-[#14000b] shadow-md w-96 rounded-xl bg-clip-border">
+            <div className="relative flex flex-cols-1 text-gray-700 bg-[#14000b] shadow-md w-96 rounded-xl bg-clip-border">
               <div className="max-w-md mx-auto bg-[#14000b] p-6 rounded-lg shadow-lg">
                 <label
                   htmlFor="usdt"

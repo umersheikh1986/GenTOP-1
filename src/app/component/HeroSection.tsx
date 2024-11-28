@@ -72,13 +72,13 @@ function HeroSection() {
         <div className="mt-20 pt-10">
           <div className="relative  rounded-full  h-[250px] w-[90%] md:w-[560px] mx-auto mt-10 mb-10 flex items-center justify-center">
             {/* Base Image */}
-            <Image
+            {/* <Image
               src="/Gft-1.png"
               width={550}
               height={550}
               alt="gtf-img"
               className="absolute mt-6 w-[80%] md:w-[550px]"
-            />
+            /> */}
 
             {/* Main Logo */}
             <Image
@@ -86,17 +86,17 @@ function HeroSection() {
               alt="logo"
               width={600}
               height={600}
-              className="absolute w-[60%] md:w-[600px] "
+              className="absolute w-[60%] md:w-[600px] animate-moveUpDown "
             />
 
             {/* Overlay Image */}
-            <Image
+            {/* <Image
               src="/gentop-6.png"
               alt="overlay"
               width={524}
               height={550}
               className="absolute w-[70%] md:w-[524px] ml-3"
-            />
+            /> */}
           </div>
 
           <div className="w-[90%] md:w-[560px] mx-auto">
