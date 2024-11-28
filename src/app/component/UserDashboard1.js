@@ -2724,7 +2724,7 @@ const UserDashboard1 = () => {
   }
   return (
     <div>
-      <div className="flex flex-col md:flex-row  min-h-screen text-white  space-x-5">
+      <div className="flex flex-col md:flex-row pt-5  min-h-screen text-white  space-x-5">
         {/* Left Side: Connect Wallet Button */}
         <div className=" md:w-1/4 p-10 shadow-md rounded-lg">
           <h2 className="text-xl font-semibold mb-6">User Dashboard</h2>
