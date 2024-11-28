@@ -9817,7 +9817,7 @@ export default function Trade() {
   return (
     <div>
       <section>
-        <div className=" flex justify-center mx-5 sm:gird grid-cols-1 items-center min-h-screen">
+        <div className=" flex justify-center mx-5 sm:gird grid-cols-1 sm:pt-5 items-center min-h-screen">
           <div className="max-w-[720px] mx-auto">
             {/* <h1 className="text-white"> Web3Modal connection</h1> */}
             <div className="text-white  ml-10  flex items-center justify-center">

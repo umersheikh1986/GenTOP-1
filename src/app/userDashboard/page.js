@@ -3413,7 +3413,7 @@ const UserDashboard = () => {
     <div className="mt-10 text-white flex flex-col flex-2 md:flex-col md:mt-10  sm:flex-cols-2 items-center justify-center h-screen">
       <h1>User Dashboard</h1>
 
-      <div className="pt-10">
+      <div className="pt-12">
         <UserDashboard1 />
       </div>
     </div>

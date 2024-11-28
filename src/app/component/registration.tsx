@@ -22,36 +22,48 @@ function Registration() {
                 </p>
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
+            <div className="grid grid-cols-2  sm:gap-6 sm:grid-cols-3">
               <div>
-                <h2 className="mb-6  text-2xl font-semibold text-white">
-                  HOME
-                </h2>
-                <ul className="text-white font-medium">
+                {/* <h2 className="  text-2xl font-semibold text-white">Staking</h2> */}
+                {/* <ul className="text-white font-medium">
                   <li className="mb-4">
                     <div className="hover:underline ">Our Coumunity</div>
                   </li>
                   <li>
                     <div className="hover:underline">Gentop Tokens</div>
                   </li>
-                </ul>
+                </ul> */}
+                <a
+                  href="https://bscscan.com/address/0xc94cDB70F1ec91437C5d22340d5206B4B8928482"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="  text-2xl font-semibold text-white"
+                >
+                  Staking
+                </a>{" "}
               </div>
               <div>
-                <h2 className="mb-6 text-2xl font-semibold text-white">Buy</h2>
-                <ul className=" text-white font-medium">
+                {/* <h2 className=" text-2xl font-semibold text-white">Presale</h2> */}
+                {/* <ul className=" text-white font-medium">
                   <li className="mb-4">
                     <div className="hover:underline ">Approve</div>
                   </li>
                   <li>
                     <div className="hover:underline">Buy Tokens</div>
                   </li>
-                </ul>
+                </ul> */}
+                <a
+                  href="https://bscscan.com/address/0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="  text-2xl font-semibold text-white"
+                >
+                  Presale
+                </a>{" "}
               </div>
               <div>
-                <h2 className="mb-6 text-2xl font-semibold text-white">
-                  Staking
-                </h2>
-                <ul className=" text-white font-medium">
+                {/* <h2 className=" text-2xl font-semibold text-white">Gentop</h2> */}
+                {/* <ul className=" text-white font-medium">
                   <li className="mb-4">
                     <a href="#" className="hover:underline">
                       Bronze
@@ -62,9 +74,17 @@ function Registration() {
                       Silver &amp; Gold
                     </a>
                   </li>
-                </ul>
+                </ul> */}
+                <a
+                  href="https://bscscan.com/address/0x4DF17Ed886b3237fDbc29EdB6e4dc986433f2377"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="  text-2xl font-semibold text-white"
+                >
+                  Gentop
+                </a>{" "}
               </div>
-              <div>
+              {/* <div>
                 <h2 className="mb-6 text-2xl font-semibold text-white">
                   Legal
                 </h2>
@@ -80,7 +100,7 @@ function Registration() {
                     </a>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           </div>
           <hr className="my-6 border-gray-200 sm:mx-auto  text-white lg:my-8" />
