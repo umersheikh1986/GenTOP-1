@@ -2773,7 +2773,7 @@ const UserDashboard1 = () => {
               <table className="w-auto table-auto border-collapse border border-gray-300 text-xl">
                 <thead>
                   <tr className="bg-[#2C0219]">
-                    <th className="border text-[#9168BF]">#</th>
+                    <th className="border px-2 text-[#9168BF]">#</th>
                     <th className="border px-8 py-8 text-[#9168BF]">
                       Joining Date
                     </th>

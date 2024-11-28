@@ -660,8 +660,6 @@ function HomeHeader() {
                   Staking
                 </Link>
               </li>
-
-              {/* Additional Links Visible Only on Mobile */}
             </ul>
           </div>
         </div>
