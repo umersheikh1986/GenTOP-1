@@ -2773,8 +2773,8 @@ export default function Trade() {
   return (
     <div>
       <section>
-        <div className=" flex justify-center mx-5 sm:gird grid-cols-1 pt-10 sm:pt-10 items-center mt-10 min-h-screen">
-          <div className="max-w-[720px] mx-auto">
+        <div className=" flex flex-col items-center justify-center px-5 pt-20 sm:pt-20 mt-10 min-h-screen">
+          <div className="max-w-[550px] ">
             {/* <h1 className="text-white"> Web3Modal connection</h1> */}
             <div className="text-white  ml-10  flex items-center justify-center">
               {" "}
@@ -2782,16 +2782,16 @@ export default function Trade() {
                 {walletAddress}
               </button>
             </div>
-            <div className="block sm:gird grid-cols-1  items-center justify-center  mb-4 ml-10  border-slate-300 pb-2 max-w-[360px]">
-              <div className="block w-full px-4 py-2 text-center text-white transition-all">
+            <div className=" sm:gird grid-cols-1  flex items-center justify-center    border-slate-300  max-w-[360px]">
+              <div className="block w-full  text-center text-white transition-all">
                 Buy Your Own <b>Gentop Token</b>.
               </div>
             </div>
-            <hr className="ml-10 " />
-            <h1 className="text-white text-center   ml-5">
+            <hr className=" " />
+            <h1 className="text-white text-center ">
               {usdtBalance !== null && <p>USDT Balance: {usdtBalance} USDT</p>}
             </h1>
-            <div className="relative flex flex-cols-1 text-gray-700 bg-[#14000b] shadow-md w-96 rounded-xl bg-clip-border">
+            <div className="relative flex flex-col items-center bg-[#14000b] shadow-md w-full max-w-md mx-auto rounded-xl px-6">
               <div className="max-w-md mx-auto bg-[#14000b] p-6 rounded-lg shadow-lg">
                 <label
                   htmlFor="usdt"
@@ -2802,20 +2802,20 @@ export default function Trade() {
                 <input
                   type="number"
                   onChange={(e) => setUsdtAmount(e.target.value)} /// parse ether test
-                  className="mt-2 block text-center  px-2 py-2 border text-[#14000b] w-96 border-gray-300 rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
+                  className="mt-2 block w-full text-center px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
                   placeholder="Enter amount in USDT"
                 />
 
                 <label
                   htmlFor="staking"
-                  className="mt-4 text-center  block text-sm font-medium text-white"
+                  className="mt-4 block text-sm text-center font-medium text-white"
                 >
                   Select Staking Option
                 </label>
                 <select
                   id="staking"
                   value={selectedOption}
-                  className="mt-2 block w-full px-3 py-2 border text-center  text-[#14000b] font-bold border-white rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
+                  className="mt-2 block w-full px-3 py-2 border text-center border-gray-300 rounded-md focus:outline-none focus:ring-[#14000b] focus:border-[#14000b]"
                   onChange={(e) => setSelectedOption(e.target.value)}
                 >
                   Bronze <option value="1">Bronze</option>
@@ -2825,18 +2825,18 @@ export default function Trade() {
 
                 <button
                   onClick={approveUSDT}
-                  className="mt-6 w-full bg-white text-[#14000b] font-bold py-2 px-4 rounded-md hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                  className="mt-4 w-full bg-white text-[#14000b] font-bold py-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 >
                   Approve
                 </button>
 
                 <button
                   onClick={buyTokens}
-                  className="mt-4 w-full bg-white text-[#14000b] font-bold py-3 px-4 rounded-md hover:bg-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
+                  className="mt-4 w-full bg-white text-[#14000b] font-bold py-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 >
                   Buy
                 </button>
-                <div>
+                <div className="mt-4 text-center">
                   {selectedOption === "1" && (
                     <p className="text-white text-center">120 Days Staking</p>
                   )}

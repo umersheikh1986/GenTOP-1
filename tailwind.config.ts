@@ -26,6 +26,10 @@ const config: Config = {
             transform: "translateY(1px) translateY(0px) rotateY(180deg)  ",
           }, // Moves down 20px
         },
+        blink: {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
       screens: {
         xsm: "330px",
@@ -35,6 +39,7 @@ const config: Config = {
       animation: {
         slideAndFlip: "slideAndFlip 3s ease-in-out infinite",
         moveUpDown: "moveUpDown 3s ease-in-out infinite", // 3-second loop
+        blink: 'blink 1s infinite',
       },
     },
   },
