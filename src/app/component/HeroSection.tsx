@@ -114,7 +114,7 @@ function HeroSection() {
               alt="logo"
               width={500}
               height={600}
-              className="absolute w-[60%] md:w-[450px] animate-moveUpDown "
+              className="absolute w-[50%] md:w-[450px] animate-moveUpDown "
             />
           </div>
 
