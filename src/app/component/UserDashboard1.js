@@ -1149,7 +1149,7 @@ const UserDashboard1 = () => {
                           {data.stacking ? `${data.stacking}` : "0"}
                         </td>
                         <td className="border px-10 py-4 text-[#F7CE3C]">
-                          {data.plan ? `${data.stacking}` : "No Plan"}
+                          {data.plan ? `${data.plan}` : "No Plan"}
                         </td>
                         <td className="border px-10 py-4 text-[#F7CE3C] font-bold">
                           {data.status

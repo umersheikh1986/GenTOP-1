@@ -7,7 +7,7 @@ function Registration() {
       <footer className="bg-[#14000b]">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
           {/* Top Section */}
-          <div className="flex flex-row items-center gap-6 sm:flex-row sm:justify-between sm:text-sm lg:gap-8">
+          <div className="flex flex-row items-center gap-4 sm:flex-row sm:justify-between sm:text-sm lg:gap-8">
             {/* Logo and Buy Tokens */}
             <div className="flex flex-row  items-center sm:items-start">
               <Link
@@ -26,33 +26,41 @@ function Registration() {
                 </span>
               </Link>
             </div>
-
             {/* Links */}
-            <div className="flex flex-row items-center gap-4 sm:flex-row sm:gap-6">
-              <a
-                href="https://bscscan.com/address/0xc94cDB70F1ec91437C5d22340d5206B4B8928482"
-                target="_blank"
-                rel="noreferrer"
-                className="text-lg sm:text-xl lg:text-2xl font-semibold text-white"
-              >
-                Staking
-              </a>
-              <a
-                href="https://bscscan.com/address/0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597"
-                target="_blank"
-                rel="noreferrer"
-                className="text-lg sm:text-xl lg:text-2xl font-semibold text-white"
-              >
-                Presale
-              </a>
-              <a
-                href="https://bscscan.com/address/0x4DF17Ed886b3237fDbc29EdB6e4dc986433f2377"
-                target="_blank"
-                rel="noreferrer"
-                className="text-lg sm:text-xl lg:text-2xl font-semibold text-white"
-              >
-                Gentop
-              </a>
+
+            <div className="flex flex-col items-center gap-4 sm:flex-col sm:gap-4 sm:p-2">
+              <p className="text-lg sm:text-lg lg:text-2xl font-semibold text-white">
+                {" "}
+                <u>Smart Contract Addresses</u>{" "}
+              </p>{" "}
+              {/* <hr className=" bg-white sm:mx-auto " /> */}
+              <div className="gap-2 flex ">
+                {" "}
+                <a
+                  href="https://bscscan.com/address/0xc94cDB70F1ec91437C5d22340d5206B4B8928482"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-lg sm:text-lg lg:text-lg font-semibold text-white"
+                >
+                  Staking
+                </a>
+                <a
+                  href="https://bscscan.com/address/0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-lg sm:text-lg lg:text-xl font-semibold text-white"
+                >
+                  Presale
+                </a>
+                <a
+                  href="https://bscscan.com/address/0x4DF17Ed886b3237fDbc29EdB6e4dc986433f2377"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="text-lg sm:text-lg lg:text-xl font-semibold text-white"
+                >
+                  Gentop
+                </a>
+              </div>
             </div>
           </div>
 
