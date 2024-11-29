@@ -17,14 +17,25 @@ function page() {
           Audit Report
         </h3>
       </div>
-      <div className=" bg-[rgb(250,204,20)] items-center border-4 border-gray-700 text-black p-10 md:p-20 rounded-[40px] w-full md:w-1/2 mb-6 md:mb-0 flex flex-col justify-center text-center">
-        <a
-          href="/Gentop-Audit.pdf"
-          download
-          className="inline-block mt-4 text-black font-bold underline"
-        >
-          Download File from here
-        </a>
+      <div className="flex flex-row">
+        <div className=" bg-[rgb(250,204,20)] items-center border-4 border-gray-700 text-black p-10 md:p-20 rounded-[40px] w-full md:w-1/2 mb-6 md:mb-0 flex flex-col justify-center text-center">
+          <a
+            href="/Gentop-Audit.pdf"
+            download
+            className="inline-block mt-4 text-black font-bold underline"
+          >
+            Download File from here
+          </a>
+        </div>
+        <div className=" bg-[rgb(250,204,20)] items-center border-4 border-gray-700 text-black p-10 md:p-20 rounded-[40px] w-full md:w-1/2 mb-6 md:mb-0 flex flex-col justify-center text-center">
+          <a
+            href="/Gentop-Presale-and-Staking-Audit.pdf"
+            download
+            className="inline-block mt-4 text-black font-bold underline"
+          >
+            Download File from here
+          </a>
+        </div>
       </div>
     </div>
   );

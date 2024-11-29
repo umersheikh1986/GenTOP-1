@@ -48,7 +48,7 @@ const Mentality = () => {
                     - DEX Listing
                   </li>
                   <li className="font-medium text-base md:text-lg">
-                    - Education Platform
+                    - Raffle System
                   </li>
                 </ol>
               </li>
@@ -58,13 +58,13 @@ const Mentality = () => {
                 </p>
                 <ol className="pl-4 mt-2 space-y-2">
                   <li className="font-medium text-base md:text-lg">
-                    - Real Estate Tokenization Platform
-                  </li>
-                  <li className="font-medium text-base md:text-lg">
-                    - DEX Listing
-                  </li>
-                  <li className="font-medium text-base md:text-lg">
                     - Education Platform
+                  </li>
+                  <li className="font-medium text-base md:text-lg">
+                    - Real Estate Tokenization
+                  </li>
+                  <li className="font-medium text-base md:text-lg">
+                    - Digital Assets Listing
                   </li>
                 </ol>
               </li>

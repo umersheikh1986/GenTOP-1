@@ -20,13 +20,13 @@ const Decentralization = () => {
           </div>
           <div>
             <p className="mt-2 text-center">
-              Advanced Security Measures The Blockchain technology is considered
-              secure because of its use of encryption to manage data,
-              decentralization, and consensus. Gentop is a token created through
-              a verified smart contract in the Binance Smart Chain, complying
-              with all technical requirements needed. Our token has been audited
-              to ensure the best practices were used building its
-              infrastructure, guaranteeing compliance and transparency.
+              The Blockchain technology is considered secure because of its use
+              of encryption to manage data, decentralization, and consensus.
+              Gentop is a token created through a verified smart contract in the
+              Binance Smart Chain, complying with all technical requirements
+              needed. Our token has been audited to ensure the best practices
+              were used building its infrastructure, guaranteeing compliance and
+              transparency.
             </p>
           </div>
         </div>
