@@ -15,7 +15,7 @@ function Registration() {
                 className="flex flex-col items-center sm:flex-col sm:items-center"
               >
                 <Image
-                  src="/Logo3.png"
+                  src="/LLLogo3.png"
                   className="w-24 sm:w-28 lg:w-32" // Adjust image width for responsiveness
                   width={100}
                   height={300}
