@@ -1124,7 +1124,7 @@ const UserDashboard1 = () => {
                     </th>
                     <th className="border px-8 py-8 text-[#9168BF]">Staking</th>
                     <th className="border px-8 py-8 text-[#9168BF]">
-                      Up To Date Rewards
+                      Total Reward
                     </th>
                     <th className="border px-8 py-8 text-[#9168BF]">Plan</th>
                     <th className="border px-8 py-8 text-[#9168BF]">Status</th>
