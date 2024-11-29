@@ -110,7 +110,7 @@ function HeroSection() {
         <div className="mt-20 pt-10">
           <div className="relative  rounded-full  h-[250px] w-[90%] md:w-[560px] mx-auto mt-10 mb-10 flex items-center justify-center">
             <Image
-              src="/Logo3.png"
+              src="/LLLogo3.png"
               alt="logo"
               width={600}
               height={600}
