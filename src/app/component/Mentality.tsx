@@ -23,7 +23,7 @@ const Mentality = () => {
           </p>
           <div className="py-6 flex justify-center">
             <Image
-              src={`/Logo3.png`}
+              src={`/LLLogo3.png`}
               alt="bitcoin"
               width={400}
               height={400}
