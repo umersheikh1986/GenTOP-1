@@ -109,13 +109,13 @@ function HeroSection() {
       <section>
         <div className="mt-20 pt-10">
           <div className="relative  rounded-full  h-[250px] w-[90%] md:w-[560px] mx-auto mt-10 mb-10 flex items-center justify-center">
-            <Image
+            {/* <Image
               src="/LLogo3.png"
               alt="logo"
               width={500}
               height={600}
               className="absolute w-[50%] md:w-[450px] animate-moveUpDown "
-            />
+            /> */}
           </div>
 
           <div className="w-[90%] md:w-[560px] mx-auto">
