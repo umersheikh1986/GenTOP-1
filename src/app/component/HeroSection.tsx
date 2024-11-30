@@ -146,7 +146,7 @@ function HeroSection() {
               </div>
               <span className="">:</span>
               <div className="gap-2">
-                <span className="">{seconds}</span>
+                <span className="animate-blink">{seconds}</span>
                 <span className=""> seconds</span>
               </div>
             </div>
