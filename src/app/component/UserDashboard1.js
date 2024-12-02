@@ -23,6 +23,7 @@ const UserDashboard1 = () => {
   const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(false);
   const [gentTopBalance, setGentTopBalance] = useState(null);
+  const [totalPurchasedToken, settotalPurchasedToken] = useState(null);
 
   // const [signer, setSigner] = useState([]);
   console.log("this is signer from state", signer);
@@ -495,6 +496,13 @@ const UserDashboard1 = () => {
       let totalStakingRewardSum = 0;
       let totalUptoDateRewardSum = 0; // Sum of up-to-date rewards
 
+      const getTotalGentopBalance = await contract1.getTotalTokenPurchased();
+      console.log(
+        "this is total token Purchased",
+        Number(getTotalGentopBalance)
+      );
+      const totalPurchasedToken = Number(getTotalGentopBalance);
+
       for (let i = 1; i <= numPurchases; i++) {
         // const statusOfReward = await contract.userPurchasesS(walletAddress, i);
         const [userAdd, JoinTime, JoiningAmount, Percenatge] =
@@ -577,6 +585,7 @@ const UserDashboard1 = () => {
       setPurchaseData(purchaseData); // Save all purchase details to state
       setTotalStakingRewardSum(totalStakingRewardSum.toFixed(2)); // Save sum in state
       setTotalUptoDateRewardSum(totalUptoDateRewardSum.toFixed(2)); // Save up-to-date rewards sum in state
+      settotalPurchasedToken((totalPurchasedToken / 1e18).toFixed(2));
 
       setLoading(false);
     } catch (error) {
@@ -1087,6 +1096,10 @@ const UserDashboard1 = () => {
           <div className=" mt-5  font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Rewards</p>
             <p className="text-center">{totalUptoDateRewardSum}</p>
+          </div>
+          <div className=" mt-5  font-bold text-white rounded-md border-2 border-white text-lg">
+            <p className="text-center">Total Token Purchased </p>
+            <p className="text-center"> {totalPurchasedToken}</p>
           </div>
           {loading ? (
             <p>Loading purchases...</p>
