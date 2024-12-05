@@ -364,7 +364,8 @@ function HomeHeader() {
   const connectWallet = async () => {
     if (walletAddress) {
       // Disconnect wallet
-      setWalletAddress("");
+      setWalletAddress(false);
+      // setSigner("");
       console.log("Wallet disconnected");
       return;
     }
@@ -378,14 +379,15 @@ function HomeHeader() {
       const web3modalProvider = new ethers.providers.Web3Provider(
         web3modalInstance
       );
-      let provider;
-      if (window.safepalProvider) {
-        provider = new ethers.providers.Web3Provider(getProvider()); // SafePal provider
-      } else {
-        // Fallback to Web3Modal provider
-        provider = new ethers.providers.Web3Provider(web3modalInstance);
-      }
-      const signer = web3modalProvider.getSigner();
+      // let provider;
+      // if (window.safepalProvider) {
+      //   provider = new ethers.providers.Web3Provider(getProvider()); // SafePal provider
+      // } else {
+      //   // Fallback to Web3Modal provider
+      //   provider = new ethers.providers.Web3Provider(web3modalInstance);
+      // }
+      const signers = web3modalProvider.getSigner();
+      const signer = signers;
       console.log(signer);
       setSigner(signer);
 

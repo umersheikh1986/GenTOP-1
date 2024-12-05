@@ -52,7 +52,10 @@ const UserDashboard1 = () => {
 
   async function fetchStakingDetails() {
     try {
+      setSigner(signer);
+      setWalletAddress(walletAddress);
       // Define the presale contract
+
       const preSaleABI = [
         {
           inputs: [
