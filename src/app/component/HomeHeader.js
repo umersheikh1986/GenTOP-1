@@ -343,49 +343,80 @@ function HomeHeader() {
 
   // const [walletAddress, setWalletAddress] = useState("");
   // const [signer, setSigner] = useState("");
+  // const connectWallet = async () => {
+  //   if (walletAddress) {
+  //     // Disconnect wallet
+  //     setWalletAddress(null);
+  //     setSigner(null);
+  //     console.log("Wallet disconnected");
+  //     return;
+  //   }
+  //   try {
+  //     const web3Modal = new Web3Modal({
+  //       cacheProvider: false,
+  //       providerOptions,
+  //     });
+
+  //     const web3modalInstance = await web3Modal.connect();
+  //     const web3modalProvider = new ethers.providers.Web3Provider(
+  //       web3modalInstance
+  //     );
+  //     // let provider;
+  //     // if (window.safepalProvider) {
+  //     //   provider = new ethers.providers.Web3Provider(getProvider()); // SafePal provider
+  //     // } else {
+  //     //   // Fallback to Web3Modal provider
+  //     //   provider = new ethers.providers.Web3Provider(web3modalInstance);
+  //     // }
+  //     const signer = web3modalProvider.getSigner();
+  //     // const signer = signers;
+  //     console.log(signer);
+  //     setSigner(signer);
+
+  //     const walletAddres = await signer.getAddress();
+  //     console.log(walletAddres);
+  //     // Update state with wallet details
+  //     setWalletAddress(walletAddres);
+
+  //     // Fetch staking data right after connecting the wallet
+  //     // setLoading(true);
+  //     // await fetchStakingDetails(signer); // Pass signer directly
+  //     // await updateCountdown();
+
+  //     // setLoading(false);
+  //   } catch (error) {
+  //     console.log("Error connecting wallet:", error);
+  //   }
+  // };
   const connectWallet = async () => {
-    if (walletAddress) {
-      // Disconnect wallet
-      setWalletAddress(null);
-      setSigner(null);
-      console.log("Wallet disconnected");
-      return;
-    }
     try {
       const web3Modal = new Web3Modal({
-        cacheProvider: true,
-        providerOptions,
+        cacheProvider: false, // Prevent caching of the provider
+        providerOptions, // Set your provider options (MetaMask, WalletConnect, etc.)
       });
 
-      const web3modalInstance = await web3Modal.connect();
-      const web3modalProvider = new ethers.providers.Web3Provider(
-        web3modalInstance
+      const web3ModalInstance = await web3Modal.connect();
+      const web3ModalProvider = new ethers.providers.Web3Provider(
+        web3ModalInstance
       );
-      // let provider;
-      // if (window.safepalProvider) {
-      //   provider = new ethers.providers.Web3Provider(getProvider()); // SafePal provider
-      // } else {
-      //   // Fallback to Web3Modal provider
-      //   provider = new ethers.providers.Web3Provider(web3modalInstance);
-      // }
-      const signer = web3modalProvider.getSigner();
-      // const signer = signers;
-      console.log(signer);
-      setSigner(signer);
 
-      const walletAddres = await signer.getAddress();
-      console.log(walletAddres);
+      // Ensure the provider is connected and signer is available
+      const signer = web3ModalProvider.getSigner();
+      console.log("Signer:", signer);
+
+      // Fetch wallet address
+      const walletAddress = await signer.getAddress();
+      if (!walletAddress) {
+        console.log("No wallet address found");
+        return;
+      }
+      console.log("Wallet Address:", walletAddress);
+
       // Update state with wallet details
-      setWalletAddress(walletAddres);
-
-      // Fetch staking data right after connecting the wallet
-      // setLoading(true);
-      // await fetchStakingDetails(signer); // Pass signer directly
-      // await updateCountdown();
-
-      // setLoading(false);
+      setWalletAddress(walletAddress);
+      setSigner(signer);
     } catch (error) {
-      console.log("Error connecting wallet:", error);
+      console.error("Error connecting wallet:", error);
     }
   };
 
