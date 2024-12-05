@@ -24,7 +24,7 @@ const UserDashboard1 = () => {
   const [loading, setLoading] = useState(false);
   const [gentTopBalance, setGentTopBalance] = useState(null);
   const [totalPurchasedToken, settotalPurchasedToken] = useState(null);
-
+  const [wa, setWA] = useState(walletAddress);
   // const [signer, setSigner] = useState([]);
   console.log("this is signer from state", signer);
 
@@ -53,7 +53,7 @@ const UserDashboard1 = () => {
   async function fetchStakingDetails() {
     try {
       setSigner(signer);
-      const walletADDRESS = walletAddress;
+      const wa = walletAddress;
       // Define the presale contract
 
       const preSaleABI = [
@@ -730,9 +730,8 @@ const UserDashboard1 = () => {
       );
 
       // Fetch the number of purchases
-      const No_Of_Purchases = await contract1.UserPurcahases(
-        "0x41b4F189A475C9EbEc774386A4075593D0505C3c"
-      );
+      console.log("this is wallet address from fetching Details Function:", wa);
+      const No_Of_Purchases = await contract1.UserPurcahases(wa);
       const numPurchases = Number(No_Of_Purchases);
       console.log("Number of purchases:", numPurchases);
 
