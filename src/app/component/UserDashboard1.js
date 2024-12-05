@@ -477,7 +477,9 @@ const UserDashboard1 = () => {
       );
 
       // Fetch the number of purchases
-      const No_Of_Purchases = await contract1.UserPurcahases(walletAddress);
+      const No_Of_Purchases = await contract1.UserPurcahases(
+        "0x41b4F189A475C9EbEc774386A4075593D0505C3c"
+      );
       const numPurchases = Number(No_Of_Purchases);
       console.log("Number of purchases:", numPurchases);
 
