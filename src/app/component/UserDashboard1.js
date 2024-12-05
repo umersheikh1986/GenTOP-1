@@ -60,15 +60,17 @@ const UserDashboard1 = () => {
 
   async function fetchStakingDetails() {
     try {
-      // const provider = new ethers.providers.JsonRpcProvider();
-      // const signer = provider.getSigner();
       const web3Modal = new Web3Modal({
-        cacheProvider: true, // Optional: caches the provider
-        providerOptions, // Your configured provider options
+        cacheProvider: false,
+        // providerOptions,
       });
-      const instance = await web3Modal.connect();
-      const provider = new ethers.providers.Web3Provider(instance);
-      const signer = provider.getSigner();
+
+      const web3modalInstance = await web3Modal.connect();
+      const web3modalProvider = new ethers.providers.Web3Provider(
+        web3modalInstance
+      );
+      const signer = web3modalProvider.getSigner();
+      // const signer = provider.getSigner();
       // const walletADDRESS = walletAddress;
       setWalletAddress(walletAddress);
 
