@@ -60,17 +60,19 @@ const UserDashboard1 = () => {
 
   async function fetchStakingDetails() {
     try {
-      const web3Modal = new Web3Modal({
-        cacheProvider: false,
-        // providerOptions,
-      });
+      // const web3Modal = new Web3Modal({
+      //   cacheProvider: false,
+      //   providerOptions,
+      // });
 
-      const web3modalInstance = await web3Modal.connect();
-      const web3modalProvider = new ethers.providers.Web3Provider(
-        web3modalInstance
+      // const web3modalInstance = await web3Modal.connect();
+      // const web3modalProvider = new ethers.providers.Web3Provider(
+      //   web3modalInstance
+      // );
+      const provider = new ethers.providers.JsonRpcProvider(
+        "https://mainnet.infura.io/v3/YOUR_INFURA_PROJECT_ID"
       );
-      const signer = web3modalProvider.getSigner();
-      // const signer = provider.getSigner();
+      const signer = provider.getSigner();
       // const walletADDRESS = walletAddress;
       setWalletAddress(walletAddress);
 
