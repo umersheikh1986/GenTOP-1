@@ -313,6 +313,15 @@ function getProvider() {
   return provider;
 }
 const providerOptions = {
+  injected: {
+    package: null, // MetaMask uses window.ethereum (no additional package needed)
+    display: {
+      name: "MetaMask",
+      description: "Connect with MetaMask browser extension",
+      logo: "https://raw.githubusercontent.com/MetaMask/brand-resources/master/SVG/metamask-fox.svg", // MetaMask logo
+    },
+  },
+
   coinbasewallet: {
     package: CoinbaseWalletSDK,
     options: {
