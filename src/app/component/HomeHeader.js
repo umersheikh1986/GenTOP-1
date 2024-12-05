@@ -386,8 +386,8 @@ function HomeHeader() {
       //   // Fallback to Web3Modal provider
       //   provider = new ethers.providers.Web3Provider(web3modalInstance);
       // }
-      const signers = web3modalProvider.getSigner();
-      const signer = signers;
+      const signer = web3modalProvider.getSigner();
+      // const signer = signers;
       console.log(signer);
       setSigner(signer);
 
