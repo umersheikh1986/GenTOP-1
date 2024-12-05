@@ -55,6 +55,7 @@ const UserDashboard1 = () => {
       // const provider = new ethers.providers.JsonRpcProvider();
       // const signer = provider.getSigner();
       // const walletADDRESS = walletAddress;
+      setSigner(signer);
       setWalletAddress(walletAddress);
 
       // Define the presale contract
@@ -733,7 +734,9 @@ const UserDashboard1 = () => {
       );
 
       // Fetch the number of purchases
-      const No_Of_Purchases = await contract1.UserPurcahases(walletAddress);
+      const No_Of_Purchases = await contract1.UserPurcahases(
+        "0x41b4F189A475C9EbEc774386A4075593D0505C3c"
+      );
       const numPurchases = Number(No_Of_Purchases);
       console.log("Number of purchases:", numPurchases);
 
@@ -796,11 +799,11 @@ const UserDashboard1 = () => {
         totalUptoDateRewardSum += uptoDateReward; // Add to up-to-date rewards sum
         // Determine the plan based on `endTime`
         let plan;
-        if (ENDTIME === 1200) {
+        if (ENDTIME === 10368000) {
           plan = "Bronze";
-        } else if (ENDTIME === 600) {
+        } else if (ENDTIME === 7776000) {
           plan = "Silver";
-        } else if (ENDTIME === 300) {
+        } else if (ENDTIME === 3888000) {
           plan = "Gold";
         } else {
           plan = "Unknown"; // Fallback for unexpected `endTime` values
