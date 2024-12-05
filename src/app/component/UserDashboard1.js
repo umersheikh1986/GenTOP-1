@@ -53,7 +53,7 @@ const UserDashboard1 = () => {
   async function fetchStakingDetails() {
     try {
       setSigner(signer);
-      const wa = walletAddress;
+      const walletADDRESS = walletAddress;
       // Define the presale contract
 
       const preSaleABI = [
@@ -730,16 +730,15 @@ const UserDashboard1 = () => {
       );
 
       // Fetch the number of purchases
-      console.log("this is wallet address from fetching Details Function:");
-      // const No_Of_Purchases = await contract1.UserPurcahases(wa);
-      // const numPurchases = Number(No_Of_Purchases);
-      // console.log("Number of purchases:", numPurchases);
+      const No_Of_Purchases = await contract1.UserPurcahases(walletADDRESS);
+      const numPurchases = Number(No_Of_Purchases);
+      console.log("Number of purchases:", numPurchases);
 
-      // const purchases = Array.from(
-      //   { length: numPurchases },
-      //   (_, index) => index + 1
-      // );
-      // setPurchaseArray(purchases);
+      const purchases = Array.from(
+        { length: numPurchases },
+        (_, index) => index + 1
+      );
+      setPurchaseArray(purchases);
 
       const contract = new ethers.Contract(
         "0xc94cDB70F1ec91437C5d22340d5206B4B8928482",
@@ -760,7 +759,7 @@ const UserDashboard1 = () => {
       );
       const totalPurchasedToken = Number(getTotalGentopBalance);
 
-      for (let i = 1; i <= 2; i++) {
+      for (let i = 1; i <= numPurchases; i++) {
         // const statusOfReward = await contract.userPurchasesS(walletAddress, i);
         const [userAdd, JoinTime, JoiningAmount, Percenatge] =
           await contract1.getUserData(walletAddress, i);
