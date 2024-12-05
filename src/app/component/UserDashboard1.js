@@ -730,7 +730,7 @@ const UserDashboard1 = () => {
       );
 
       // Fetch the number of purchases
-      console.log("this is wallet address from fetching Details Function:", wa);
+      console.log("this is wallet address from fetching Details Function:");
       const No_Of_Purchases = await contract1.UserPurcahases(wa);
       const numPurchases = Number(No_Of_Purchases);
       console.log("Number of purchases:", numPurchases);
@@ -760,7 +760,7 @@ const UserDashboard1 = () => {
       );
       const totalPurchasedToken = Number(getTotalGentopBalance);
 
-      for (let i = 1; i <= numPurchases; i++) {
+      for (let i = 1; i <= 2; i++) {
         // const statusOfReward = await contract.userPurchasesS(walletAddress, i);
         const [userAdd, JoinTime, JoiningAmount, Percenatge] =
           await contract1.getUserData(walletAddress, i);
