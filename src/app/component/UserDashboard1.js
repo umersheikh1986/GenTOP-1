@@ -12,7 +12,15 @@ import Image from "next/image";
 // const gentopAddress = "0x67Cd96b18747333f01668976bF4dF6d3f4a517c3"; // Replace with Contract 2 address
 const stakingContractAddress = "0xc94cDB70F1ec91437C5d22340d5206B4B8928482"; // Replace with Contract 3 address
 const preSaleContractAddress = "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597";
-
+const providerOptions = {
+  // coinbasewallet: {
+  //   package: CoinbaseWalletSDK,
+  //   options: {
+  //     appName: "Web3Modal Demo",
+  //     infuraId: "https://rpc.testnet.fantom.network", // Replace with the correct RPC URL if needed
+  //   },
+  // },
+};
 const UserDashboard1 = () => {
   // const [walletAddress, setWalletAddress] = useState(null);
   const { walletAddress, setWalletAddress, setSigner, signer } =
@@ -52,7 +60,15 @@ const UserDashboard1 = () => {
 
   async function fetchStakingDetails() {
     try {
-      setSigner(signer);
+      // const provider = new ethers.providers.JsonRpcProvider();
+      // const signer = provider.getSigner();
+      const web3Modal = new Web3Modal({
+        cacheProvider: true, // Optional: caches the provider
+        providerOptions, // Your configured provider options
+      });
+      const instance = await web3Modal.connect();
+      const provider = new ethers.providers.Web3Provider(instance);
+      const signer = provider.getSigner();
       // const walletADDRESS = walletAddress;
       setWalletAddress(walletAddress);
 

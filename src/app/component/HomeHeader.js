@@ -301,27 +301,7 @@ import WalletConnectProvider from "@walletconnect/web3-provider";
 // const endpoint = clusterApiUrl(network); // Solana RPC URL
 // const connection = new Connection(endpoint);
 
-function getProvider() {
-  const provider = window.safepalProvider; // Check if SafePal provider is injected
-  if (!provider) {
-    // If SafePal provider is not found, open the download link
-    window.open("https://www.safepal.com/download");
-    throw new Error(
-      "Please go to our official website to download SafePal wallet."
-    );
-  }
-  return provider;
-}
 const providerOptions = {
-  injected: {
-    package: null, // MetaMask uses window.ethereum (no additional package needed)
-    display: {
-      name: "MetaMask",
-      description: "Connect with MetaMask browser extension",
-      logo: "https://raw.githubusercontent.com/MetaMask/brand-resources/master/SVG/metamask-fox.svg", // MetaMask logo
-    },
-  },
-
   coinbasewallet: {
     package: CoinbaseWalletSDK,
     options: {
@@ -329,14 +309,7 @@ const providerOptions = {
       infuraId: "https://rpc.testnet.fantom.network", // Replace with the correct RPC URL if needed
     },
   },
-  // injected: {
-  //   package: null, // SafePal uses window.ethereum (no additional package needed)
-  //   display: {
-  //     name: "SafePal", // Name to display in Web3Modal
-  //     description: "Connect to SafePal Wallet",
-  //     logo: "data:image/gif;base64,INSERT_BASE64_STRING", // SafePal logo (you can update this logo if needed)
-  //   },
-  // },
+
   walletconnect: {
     package: WalletConnectProvider,
     options: {

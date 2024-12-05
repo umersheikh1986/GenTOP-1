@@ -6,7 +6,7 @@ export const WalletContext = createContext();
 // Create a provider component
 export const WalletProvider = ({ children }) => {
   const [walletAddress, setWalletAddress] = useState(null);
-  const [signer, setSigner] = useState([]);
+  const [signer, setSigner] = useState(null);
 
   return (
     <WalletContext.Provider
