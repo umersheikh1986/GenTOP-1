@@ -53,7 +53,7 @@ const UserDashboard1 = () => {
   async function fetchStakingDetails() {
     try {
       setSigner(signer);
-      setWalletAddress(walletAddress);
+      const walletADDRESS = walletAddress;
       // Define the presale contract
 
       const preSaleABI = [
@@ -472,14 +472,265 @@ const UserDashboard1 = () => {
       // Provide the actual ABI here
       const contract1 = new ethers.Contract(
         "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
-        preSaleABI,
+        [
+          {
+            inputs: [
+              {
+                internalType: "contract IERC20",
+                name: "__USDT",
+                type: "address",
+              },
+              {
+                internalType: "contract IERC20",
+                name: "__GentTop",
+                type: "address",
+              },
+              { internalType: "address", name: "_staking", type: "address" },
+              { internalType: "address", name: "_owner", type: "address" },
+              { internalType: "uint256", name: "_price", type: "uint256" },
+            ],
+            stateMutability: "nonpayable",
+            type: "constructor",
+          },
+          {
+            inputs: [
+              { internalType: "uint256", name: "_usdtAmount", type: "uint256" },
+              { internalType: "address", name: "_buyer", type: "address" },
+              { internalType: "uint256", name: "_runner", type: "uint256" },
+            ],
+            name: "Buy",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [
+              { internalType: "address", name: "", type: "address" },
+              { internalType: "uint256", name: "", type: "uint256" },
+            ],
+            name: "User",
+            outputs: [
+              { internalType: "address", name: "userAdd", type: "address" },
+              { internalType: "uint256", name: "joinTime", type: "uint256" },
+              {
+                internalType: "uint256",
+                name: "joiningAmount",
+                type: "uint256",
+              },
+              { internalType: "uint256", name: "percenTage", type: "uint256" },
+              { internalType: "uint256", name: "endTime", type: "uint256" },
+              { internalType: "uint256", name: "totalReward", type: "uint256" },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              { internalType: "address", name: "__user", type: "address" },
+            ],
+            name: "UserPurcahases",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_BronzePercentage",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_BronzePrice",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_GentTop",
+            outputs: [
+              { internalType: "contract IERC20", name: "", type: "address" },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_GoldPercentage",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_GoldPrice",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_SilverPercentage",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_SilverPrice",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_USDT",
+            outputs: [
+              { internalType: "contract IERC20", name: "", type: "address" },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_bronzeSold",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_goldSold",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_limitSale",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "_silverSold",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "buyer",
+            outputs: [{ internalType: "address", name: "", type: "address" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              { internalType: "address", name: "userAddress", type: "address" },
+              { internalType: "uint256", name: "_num", type: "uint256" },
+            ],
+            name: "checkCumulativeReward",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "getTotalTokenPurchased",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              { internalType: "address", name: "_userAdd", type: "address" },
+              { internalType: "uint256", name: "_num", type: "uint256" },
+            ],
+            name: "getUserData",
+            outputs: [
+              { internalType: "address", name: "", type: "address" },
+              { internalType: "uint256", name: "", type: "uint256" },
+              { internalType: "uint256", name: "", type: "uint256" },
+              { internalType: "uint256", name: "", type: "uint256" },
+              { internalType: "uint256", name: "", type: "uint256" },
+              { internalType: "uint256", name: "", type: "uint256" },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "owner",
+            outputs: [{ internalType: "address", name: "", type: "address" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "price",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "salesClosingTime",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              { internalType: "uint256", name: "_percentage", type: "uint256" },
+              {
+                internalType: "uint256",
+                name: "_whichTypeOfPercentage",
+                type: "uint256",
+              },
+            ],
+            name: "setPercentage",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "staking",
+            outputs: [{ internalType: "address", name: "", type: "address" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "totalTokenpurchased",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [{ internalType: "address", name: "", type: "address" }],
+            name: "userPurcahases",
+            outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "withdrawAdmin",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+        ],
         signer
       );
 
       // Fetch the number of purchases
-      const No_Of_Purchases = await contract1.UserPurcahases(
-        "0x41b4F189A475C9EbEc774386A4075593D0505C3c"
-      );
+      const No_Of_Purchases = await contract1.UserPurcahases(walletADDRESS);
       const numPurchases = Number(No_Of_Purchases);
       console.log("Number of purchases:", numPurchases);
 
@@ -604,267 +855,267 @@ const UserDashboard1 = () => {
       // await withdrawReward();
       console.log(`from useEffect : => ${signer}`);
 
-      const preSaleABI = [
-        {
-          inputs: [
-            {
-              internalType: "contract IERC20",
-              name: "__USDT",
-              type: "address",
-            },
-            {
-              internalType: "contract IERC20",
-              name: "__GentTop",
-              type: "address",
-            },
-            { internalType: "address", name: "_staking", type: "address" },
-            { internalType: "address", name: "_owner", type: "address" },
-            { internalType: "uint256", name: "_price", type: "uint256" },
-          ],
-          stateMutability: "nonpayable",
-          type: "constructor",
-        },
-        {
-          inputs: [
-            { internalType: "uint256", name: "_usdtAmount", type: "uint256" },
-            { internalType: "address", name: "_buyer", type: "address" },
-            { internalType: "uint256", name: "_runner", type: "uint256" },
-          ],
-          name: "Buy",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [
-            { internalType: "address", name: "", type: "address" },
-            { internalType: "uint256", name: "", type: "uint256" },
-          ],
-          name: "User",
-          outputs: [
-            { internalType: "address", name: "userAdd", type: "address" },
-            { internalType: "uint256", name: "joinTime", type: "uint256" },
-            { internalType: "uint256", name: "joiningAmount", type: "uint256" },
-            { internalType: "uint256", name: "percenTage", type: "uint256" },
-            { internalType: "uint256", name: "endTime", type: "uint256" },
-            { internalType: "uint256", name: "totalReward", type: "uint256" },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            { internalType: "address", name: "__user", type: "address" },
-          ],
-          name: "UserPurcahases",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_BronzePercentage",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_BronzePrice",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_GentTop",
-          outputs: [
-            { internalType: "contract IERC20", name: "", type: "address" },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_GoldPercentage",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_GoldPrice",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_SilverPercentage",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_SilverPrice",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_USDT",
-          outputs: [
-            { internalType: "contract IERC20", name: "", type: "address" },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_bronzeSold",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_goldSold",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_limitSale",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "_silverSold",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "buyer",
-          outputs: [{ internalType: "address", name: "", type: "address" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            { internalType: "address", name: "userAddress", type: "address" },
-            { internalType: "uint256", name: "_num", type: "uint256" },
-          ],
-          name: "checkCumulativeReward",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "getTotalTokenPurchased",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            { internalType: "address", name: "_userAdd", type: "address" },
-            { internalType: "uint256", name: "_num", type: "uint256" },
-          ],
-          name: "getUserData",
-          outputs: [
-            { internalType: "address", name: "", type: "address" },
-            { internalType: "uint256", name: "", type: "uint256" },
-            { internalType: "uint256", name: "", type: "uint256" },
-            { internalType: "uint256", name: "", type: "uint256" },
-            { internalType: "uint256", name: "", type: "uint256" },
-            { internalType: "uint256", name: "", type: "uint256" },
-          ],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "owner",
-          outputs: [{ internalType: "address", name: "", type: "address" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "price",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "salesClosingTime",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [
-            { internalType: "uint256", name: "_percentage", type: "uint256" },
-            {
-              internalType: "uint256",
-              name: "_whichTypeOfPercentage",
-              type: "uint256",
-            },
-          ],
-          name: "setPercentage",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "staking",
-          outputs: [{ internalType: "address", name: "", type: "address" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "totalTokenpurchased",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [{ internalType: "address", name: "", type: "address" }],
-          name: "userPurcahases",
-          outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
-          stateMutability: "view",
-          type: "function",
-        },
-        {
-          inputs: [],
-          name: "withdrawAdmin",
-          outputs: [],
-          stateMutability: "nonpayable",
-          type: "function",
-        },
-      ];
-      const contract1 = new ethers.Contract(
-        "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
-        preSaleABI,
-        signer
-      );
-      const No_Of_Purchases = await contract1.UserPurcahases(walletAddress);
-      const numPurchases = Number(No_Of_Purchases);
-      const purchases = Array.from(
-        { length: numPurchases },
-        (_, index) => index + 1
-      );
+      // const preSaleABI = [
+      //   {
+      //     inputs: [
+      //       {
+      //         internalType: "contract IERC20",
+      //         name: "__USDT",
+      //         type: "address",
+      //       },
+      //       {
+      //         internalType: "contract IERC20",
+      //         name: "__GentTop",
+      //         type: "address",
+      //       },
+      //       { internalType: "address", name: "_staking", type: "address" },
+      //       { internalType: "address", name: "_owner", type: "address" },
+      //       { internalType: "uint256", name: "_price", type: "uint256" },
+      //     ],
+      //     stateMutability: "nonpayable",
+      //     type: "constructor",
+      //   },
+      //   {
+      //     inputs: [
+      //       { internalType: "uint256", name: "_usdtAmount", type: "uint256" },
+      //       { internalType: "address", name: "_buyer", type: "address" },
+      //       { internalType: "uint256", name: "_runner", type: "uint256" },
+      //     ],
+      //     name: "Buy",
+      //     outputs: [],
+      //     stateMutability: "nonpayable",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [
+      //       { internalType: "address", name: "", type: "address" },
+      //       { internalType: "uint256", name: "", type: "uint256" },
+      //     ],
+      //     name: "User",
+      //     outputs: [
+      //       { internalType: "address", name: "userAdd", type: "address" },
+      //       { internalType: "uint256", name: "joinTime", type: "uint256" },
+      //       { internalType: "uint256", name: "joiningAmount", type: "uint256" },
+      //       { internalType: "uint256", name: "percenTage", type: "uint256" },
+      //       { internalType: "uint256", name: "endTime", type: "uint256" },
+      //       { internalType: "uint256", name: "totalReward", type: "uint256" },
+      //     ],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [
+      //       { internalType: "address", name: "__user", type: "address" },
+      //     ],
+      //     name: "UserPurcahases",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_BronzePercentage",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_BronzePrice",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_GentTop",
+      //     outputs: [
+      //       { internalType: "contract IERC20", name: "", type: "address" },
+      //     ],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_GoldPercentage",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_GoldPrice",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_SilverPercentage",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_SilverPrice",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_USDT",
+      //     outputs: [
+      //       { internalType: "contract IERC20", name: "", type: "address" },
+      //     ],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_bronzeSold",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_goldSold",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_limitSale",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "_silverSold",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "buyer",
+      //     outputs: [{ internalType: "address", name: "", type: "address" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [
+      //       { internalType: "address", name: "userAddress", type: "address" },
+      //       { internalType: "uint256", name: "_num", type: "uint256" },
+      //     ],
+      //     name: "checkCumulativeReward",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "getTotalTokenPurchased",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [
+      //       { internalType: "address", name: "_userAdd", type: "address" },
+      //       { internalType: "uint256", name: "_num", type: "uint256" },
+      //     ],
+      //     name: "getUserData",
+      //     outputs: [
+      //       { internalType: "address", name: "", type: "address" },
+      //       { internalType: "uint256", name: "", type: "uint256" },
+      //       { internalType: "uint256", name: "", type: "uint256" },
+      //       { internalType: "uint256", name: "", type: "uint256" },
+      //       { internalType: "uint256", name: "", type: "uint256" },
+      //       { internalType: "uint256", name: "", type: "uint256" },
+      //     ],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "owner",
+      //     outputs: [{ internalType: "address", name: "", type: "address" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "price",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "salesClosingTime",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [
+      //       { internalType: "uint256", name: "_percentage", type: "uint256" },
+      //       {
+      //         internalType: "uint256",
+      //         name: "_whichTypeOfPercentage",
+      //         type: "uint256",
+      //       },
+      //     ],
+      //     name: "setPercentage",
+      //     outputs: [],
+      //     stateMutability: "nonpayable",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "staking",
+      //     outputs: [{ internalType: "address", name: "", type: "address" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "totalTokenpurchased",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [{ internalType: "address", name: "", type: "address" }],
+      //     name: "userPurcahases",
+      //     outputs: [{ internalType: "uint256", name: "", type: "uint256" }],
+      //     stateMutability: "view",
+      //     type: "function",
+      //   },
+      //   {
+      //     inputs: [],
+      //     name: "withdrawAdmin",
+      //     outputs: [],
+      //     stateMutability: "nonpayable",
+      //     type: "function",
+      //   },
+      // ];
+      // const contract1 = new ethers.Contract(
+      //   "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597",
+      //   preSaleABI,
+      //   signer
+      // );
+      // const No_Of_Purchases = await contract1.UserPurcahases(walletAddress);
+      // const numPurchases = Number(No_Of_Purchases);
+      // const purchases = Array.from(
+      //   { length: numPurchases },
+      //   (_, index) => index + 1
+      // );
 
       const stakingAbi = [
         {
@@ -1020,28 +1271,28 @@ const UserDashboard1 = () => {
         },
       ];
 
-      const contract = new ethers.Contract(contractAddress, stakingAbi, signer);
-      const totalStakingRewardss = await contract.GetUserData(
-        walletAddress,
-        numPurchases
-      );
+      // const contract = new ethers.Contract(contractAddress, stakingAbi, signer);
+      // const totalStakingRewardss = await contract.GetUserData(
+      //   walletAddress,
+      //   numPurchases
+      // );
 
-      console.log("this is User data", totalStakingRewardss);
-      const [joinTime, EndTime, totalReward] = totalStakingRewardss;
+      // console.log("this is User data", totalStakingRewardss);
+      // const [joinTime, EndTime, totalReward] = totalStakingRewardss;
 
-      console.log("This is Joining Time from smart contract", Number(joinTime));
-      console.log(
-        "this is End Time from smart Contract  ",
-        Number(EndTime) + Number(joinTime)
-      );
-      console.log(
-        "this is value at 3rd index of object at Userdata",
-        Number(totalReward)
-      );
+      // console.log("This is Joining Time from smart contract", Number(joinTime));
+      // console.log(
+      //   "this is End Time from smart Contract  ",
+      //   Number(EndTime) + Number(joinTime)
+      // );
+      // console.log(
+      //   "this is value at 3rd index of object at Userdata",
+      //   Number(totalReward)
+      // );
       const now = new Date().getTime();
       console.log(now);
-      // const endTime = 1763189959 * 1000;
-      const endTime = (Number(EndTime) + Number(joinTime)) * 1000;
+      const endTime1 = 1763189959 * 1000;
+      const endTime = (Number(EndTime) + Number(endTime1)) * 1000;
       const distance = endTime - now;
       console.log("this difference of time", distance, now, endTime);
       const days = Math.floor(distance / (1000 * 60 * 60 * 24));
