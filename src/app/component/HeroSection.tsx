@@ -413,24 +413,32 @@ function HeroSection() {
               </>
             )  */}
             {/* : ( */}
-            <div className=" flex flex-row gap-4 text-center border-2  items-center justify-center rounded-lg text-sm md:text-xl text-[rgb(250,204,20)] p-4  border-[rgb(250,204,20)] ">
+            <div className=" flex flex-row gap-4 text-center border-2    items-center justify-center rounded-lg text-sm md:text-4xl text-[rgb(250,204,20)] p-8  border-[rgb(250,204,20)] ">
               <div className="gap-2">
-                <span className="animate-blink  text-red-600">{days}</span>
+                <span className="animate-blink font-extrabold text-red-600">
+                  {days}
+                </span>
                 <span className=""> days</span>
               </div>
               <span className="">:</span>
               <div className="">
-                <span className="animate-blink text-red-600 ">{hours}</span>
+                <span className="animate-blink text-red-600 font-extrabold ">
+                  {hours}
+                </span>
                 <span className=""> hours</span>
               </div>
               <span className="">:</span>
               <div className="gap-2">
-                <span className="animate-blink  text-red-600">{minutes}</span>
+                <span className="animate-blink  text-red-600 font-extrabold">
+                  {minutes}
+                </span>
                 <span className=""> minutes</span>
               </div>
               <span className="">:</span>
               <div className="gap-2">
-                <span className="animate-blink  text-red-600">{seconds}</span>
+                <span className="animate-blink  text-red-600 font-extrabold">
+                  {seconds}
+                </span>
                 <span className=""> seconds</span>
               </div>
             </div>
