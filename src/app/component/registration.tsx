@@ -42,7 +42,7 @@ function Registration() {
                   rel="noreferrer"
                   className="text-lg sm:text-lg lg:text-lg font-semibold text-white"
                 >
-                  Staking
+                  Gentop
                 </a>
                 <a
                   href="https://bscscan.com/address/0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597"
@@ -58,7 +58,7 @@ function Registration() {
                   rel="noreferrer"
                   className="text-lg sm:text-lg lg:text-xl font-semibold text-white"
                 >
-                  Gentop
+                  Staking
                 </a>
               </div>
             </div>

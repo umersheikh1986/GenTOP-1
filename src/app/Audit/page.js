@@ -24,7 +24,7 @@ function page() {
             download
             className="inline-block mt-4 text-black font-bold underline"
           >
-            Download File from here
+            Download Token Audit File from here
           </a>
         </div>
         <div className=" bg-[rgb(250,204,20)] items-center border-4 border-gray-700 text-black p-10 md:p-20 rounded-[40px] w-full md:w-1/2 mb-6 md:mb-0 flex flex-col justify-center text-center">
@@ -33,7 +33,7 @@ function page() {
             download
             className="inline-block mt-4 text-black font-bold underline"
           >
-            Download File from here
+            Download Staking Audit File from here
           </a>
         </div>
       </div>
