@@ -389,34 +389,66 @@ function HomeHeader() {
   //   }
   // };
   const connectWallet = async () => {
+    if (walletAddress) {
+      // Disconnect wallet
+      setWalletAddress("");
+      // setSigner(null);
+      console.log("Wallet disconnected");
+      return;
+    }
     try {
       const web3Modal = new Web3Modal({
-        cacheProvider: false, // Prevent caching of the provider
-        providerOptions, // Set your provider options (MetaMask, WalletConnect, etc.)
+        cacheProvider: false,
+        providerOptions,
       });
 
-      const web3ModalInstance = await web3Modal.connect();
-      const web3ModalProvider = new ethers.providers.Web3Provider(
-        web3ModalInstance
+      const web3modalInstance = await web3Modal.connect();
+      const web3modalProvider = new ethers.providers.Web3Provider(
+        web3modalInstance
       );
-
-      // Ensure the provider is connected and signer is available
-      const signer = web3ModalProvider.getSigner();
-      console.log("Signer:", signer);
-
-      // Fetch wallet address
-      const walletAddress = await signer.getAddress();
-      if (!walletAddress) {
-        console.log("No wallet address found");
-        return;
-      }
-      console.log("Wallet Address:", walletAddress);
-
-      // Update state with wallet details
-      setWalletAddress(walletAddress);
+      // let provider;
+      // if (window.safepalProvider) {
+      //   provider = new ethers.providers.Web3Provider(getProvider()); // SafePal provider
+      // } else {
+      //   // Fallback to Web3Modal provider
+      //   provider = new ethers.providers.Web3Provider(web3modalInstance);
+      // }
+      const signer = web3modalProvider.getSigner();
+      // const signer = signers;
+      console.log(signer);
       setSigner(signer);
+
+      const walletAddres = await signer.getAddress();
+      console.log(walletAddres);
+      // Update state with wallet details
+      setWalletAddress(walletAddres);
+
+      // Fetch staking data right after connecting the wallet
+      // setLoading(true);
+      // await fetchStakingDetails(signer); // Pass signer directly
+      // await updateCountdown();
+      web3modalInstance.on("accountsChanged", (accounts) => {
+        if (accounts.length > 0) {
+          const updatedAddress = accounts[0];
+          setWalletAddress(updatedAddress);
+          setSigner(web3modalProvider.getSigner());
+          console.log("Wallet updated:", updatedAddress);
+        } else {
+          // Handle case where all accounts are disconnected
+          setWalletAddress("");
+          setSigner(null);
+          console.log("Wallet disconnected");
+        }
+      });
+
+      // Listen for chain changes (optional)
+      web3modalInstance.on("chainChanged", (chainId) => {
+        console.log("Chain changed:", chainId);
+        window.location.reload();
+      });
+      // setLoading(false);
     } catch (error) {
-      console.error("Error connecting wallet:", error);
+      console.log("Error connecting wallet:", error);
     }
   };
 
@@ -424,24 +456,24 @@ function HomeHeader() {
     if (!address) return "";
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   }
-  const handleBuyClick = () => {
-    setIsDashboard(true); // Switch to "UserDashboard" after clicking "Buy"
-  };
-  const handleUserDashboardClick = () => {
-    setBuy(true);
-  };
-  const toggleRoute = () => {
-    setIsDashboard((prevState) => !prevState); // Toggle between "Buy" and "Dashboard"
-  };
-  const toggleRoute1 = () => {
-    setwhitePaper((prevState) => !prevState);
-  };
-  const toggleRoute2 = () => {
-    setAudit((prevState) => !prevState);
-  };
-  const toggleRout3 = () => {
-    setStaking((prevState) => !prevState);
-  };
+  // const handleBuyClick = () => {
+  //   setIsDashboard(true); // Switch to "UserDashboard" after clicking "Buy"
+  // };
+  // const handleUserDashboardClick = () => {
+  //   setBuy(true);
+  // };
+  // const toggleRoute = () => {
+  //   setIsDashboard((prevState) => !prevState); // Toggle between "Buy" and "Dashboard"
+  // };
+  // const toggleRoute1 = () => {
+  //   setwhitePaper((prevState) => !prevState);
+  // };
+  // const toggleRoute2 = () => {
+  //   setAudit((prevState) => !prevState);
+  // };
+  // const toggleRout3 = () => {
+  //   setStaking((prevState) => !prevState);
+  // };
 
   return (
     <div>
