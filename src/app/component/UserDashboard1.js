@@ -14,29 +14,18 @@ const stakingContractAddress = "0xc94cDB70F1ec91437C5d22340d5206B4B8928482"; // 
 const preSaleContractAddress = "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597";
 
 const UserDashboard1 = () => {
-  // const [walletAddress, setWalletAddress] = useState(null);
   const { walletAddress, setWalletAddress, setSigner, signer } =
     useContext(WalletContext);
-  console.log("This is Signer from UseContext", signer);
-
-  // console.log("this is Wallet Address", walletAddress)
-  const [details, setDetails] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [gentTopBalance, setGentTopBalance] = useState(null);
+
   const [totalPurchasedToken, settotalPurchasedToken] = useState(null);
   const [wa, setWA] = useState(walletAddress);
-  // const [signer, setSigner] = useState([]);
-  // console.log("this is signer from state", signer);
-
-  const [currentReward, setCurrentReward] = useState([]);
-  const [stakingContract, setStakingContract] = useState();
 
   const [No_Of_Purchases, setNo_Of_Purchases] = useState([]);
   const [EndTime, setEndTime] = useState([]);
   const [joiningTime, setJoiningTime] = useState([]);
   const [remainingTime, setremainingTime] = useState(null);
   const [purchaseArray, setPurchaseArray] = useState([]);
-  const [totalStakingRewards, setTotalStakingRewards] = useState(null);
   const [purchaseData, setPurchaseData] = useState({});
   const [totalStakingRewardSum, setTotalStakingRewardSum] = useState(null);
   const [totalUptoDateRewardSum, setTotalUptoDateRewardSum] = useState(null);
@@ -45,7 +34,7 @@ const UserDashboard1 = () => {
   const [rewardStatus, setRewardStatus] = useState(null);
 
   // Staking contract address and ABI
-  console.log("this is endtime from UseSTate", Number(endTime));
+  // console.log("this is endtime from UseSTate", Number(endTime));
   const contractAddress = "0xc94cDB70F1ec91437C5d22340d5206B4B8928482"; // Replace with actual staking contract address
 
   const preSaleContractAddress = "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597";
@@ -800,7 +789,6 @@ const UserDashboard1 = () => {
 
         const statusOfReward = await contract.userPurcahasesS(walletAddress, i); // Fetch reward status
         // console.log("This is status of reward", Number(statusOfReward));
-        console.log("This is Endtime from Fetch Details", EndTime);
         const ENDTIME = Number(EndTime);
         // const currentRewards = await contract.checkCumulativeReward(
         //   walletAddress,
@@ -863,7 +851,7 @@ const UserDashboard1 = () => {
           rewardStatuses,
         };
       }
-      console.log("Total Staking Reward Sum:", totalStakingRewardSum);
+
       setPurchaseData(purchaseData); // Save all purchase details to state
       setTotalStakingRewardSum(
         formatIndianNumber(totalStakingRewardSum.toFixed(2))
@@ -1358,7 +1346,6 @@ const UserDashboard1 = () => {
   useEffect(() => {
     const interval = setInterval(async () => {
       const endTime = await updateCountdown();
-      console.log("this is endTime from useEffect", endTime);
     }, 1000);
 
     return clearInterval(interval);

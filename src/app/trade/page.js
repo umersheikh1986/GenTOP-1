@@ -311,7 +311,7 @@ const providerOptions = {
 export default function Trade() {
   const { walletAddress, setWalletAddress, setSigner, signer } =
     useContext(WalletContext);
-  console.log("This is Signer from Trade Page", signer);
+
   const [selectedOption, setSelectedOption] = useState("1");
   const [web3Provider, setWeb3Provider] = useState(null);
   // const [walletAddress, setWalletAddress] = useState(null);

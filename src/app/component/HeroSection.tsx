@@ -8,8 +8,7 @@ import { ethers } from "ethers";
 function HeroSection() {
   const { walletAddress, setWalletAddress, setSigner, signer } =
     useContext(WalletContext);
-  console.log();
-  console.log("this is wallet address from usecontext", walletAddress);
+
   const [partyTime, setPartyTime] = useState(false);
   const [days, setDays] = useState(0);
   const [hours, setHours] = useState(0);
@@ -286,6 +285,10 @@ function HeroSection() {
   }
   useEffect(() => {
     const updateCountdown = async () => {
+      if (!walletAddress || !signer) {
+        console.log("Execution stopped: Wallet address or signer is null.");
+        return; // Stop further execution
+      }
       await fetchTokensRemainingInEachcategory();
     };
 
