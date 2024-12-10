@@ -50,6 +50,28 @@ const UserDashboard1 = () => {
 
   const preSaleContractAddress = "0xAb1e13E8A7a7d95EE8aDDC1f74aAc3CF6CccA597";
 
+  const formatIndianNumber = (num) => {
+    if (!num) return "";
+
+    // Remove existing commas and split into integer and fractional parts
+    const [integer, fraction] = num.toString().replace(/,/g, "").split(".");
+
+    // Format the integer part with commas
+    let lastThreeDigits = integer.slice(-3);
+    let otherDigits = integer.slice(0, -3);
+
+    // Add commas for every two digits in the remaining part
+    otherDigits = otherDigits.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+
+    // Combine the formatted integer part with the last three digits
+    const formattedInteger = otherDigits
+      ? `${otherDigits},${lastThreeDigits}`
+      : lastThreeDigits;
+
+    // Return the formatted number with fractional part if present
+    return fraction ? `${formattedInteger}.${fraction}` : formattedInteger;
+  };
+
   async function fetchStakingDetails() {
     try {
       // const provider = new ethers.providers.JsonRpcProvider();
@@ -833,8 +855,8 @@ const UserDashboard1 = () => {
 
         purchaseData[i] = {
           joiningDate: new Date(Number(joinTime) * 1000).toLocaleString(),
-          stacking: (totalReward / 1e18).toFixed(2),
-          uptoDateRewards: uptoDateReward,
+          stacking: formatIndianNumber((totalReward / 1e18).toFixed(2)),
+          uptoDateRewards: formatIndianNumber(uptoDateReward),
           plan,
           status: distance <= 0 ? "Completed" : remainingTime,
           remainingTime,
@@ -843,9 +865,15 @@ const UserDashboard1 = () => {
       }
       console.log("Total Staking Reward Sum:", totalStakingRewardSum);
       setPurchaseData(purchaseData); // Save all purchase details to state
-      setTotalStakingRewardSum(totalStakingRewardSum.toFixed(2)); // Save sum in state
-      setTotalUptoDateRewardSum(totalUptoDateRewardSum.toFixed(2)); // Save up-to-date rewards sum in state
-      settotalPurchasedToken((totalPurchasedToken / 1e18).toFixed(2));
+      setTotalStakingRewardSum(
+        formatIndianNumber(totalStakingRewardSum.toFixed(2))
+      ); // Save sum in state
+      setTotalUptoDateRewardSum(
+        formatIndianNumber(totalUptoDateRewardSum.toFixed(2))
+      ); // Save up-to-date rewards sum in state
+      settotalPurchasedToken(
+        formatIndianNumber((totalPurchasedToken / 1e18).toFixed(2))
+      );
 
       setLoading(false);
     } catch (error) {

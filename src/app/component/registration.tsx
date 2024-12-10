@@ -5,9 +5,9 @@ function Registration() {
   return (
     <div>
       <footer className="bg-[#14000b]">
-        <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
+        <div className="mx-auto w-full sm:mt-20 sm:pt-10 max-w-screen-xl px-4 pt-6 lg:pt-8">
           {/* Top Section */}
-          <div className="flex flex-row items-center gap-4 sm:flex-row sm:justify-between sm:text-sm lg:gap-8">
+          <div className="flex flex-row items-center gap-4 sm:pt-10 sm:flex-row sm:justify-between sm:text-sm lg:gap-8">
             {/* Logo and Buy Tokens */}
             <div className="flex flex-row  items-center sm:items-start">
               <Link
