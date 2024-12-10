@@ -5,11 +5,11 @@ function Registration() {
   return (
     <div>
       <footer className="bg-[#14000b]">
-        <div className="mx-auto w-full sm:mt-20 sm:pt-10 max-w-screen-xl px-4 pt-6 lg:pt-8">
+        <div className="mx-auto w-full sm:mt-20   max-w-screen-xl px-4 pt-6 lg:pt-8">
           {/* Top Section */}
-          <div className="flex flex-row items-center gap-4 sm:pt-10 sm:flex-row sm:justify-between sm:text-sm lg:gap-8">
+          <div className="flex flex-row items-center gap-2 mt-20  sm:flex-row sm:justify-between sm:gap-4 sm:p-2 sm:text-sm lg:gap-8">
             {/* Logo and Buy Tokens */}
-            <div className="flex flex-row  items-center sm:items-start">
+            <div className="flex flex-row items-center  sm:items-start">
               <Link
                 href="/trade"
                 className="flex flex-col items-center sm:flex-col sm:items-center"
@@ -28,13 +28,13 @@ function Registration() {
             </div>
             {/* Links */}
 
-            <div className="flex flex-col items-center gap-4 sm:flex-col sm:gap-4 sm:p-2">
+            <div className="flex flex-col items-center gap-4 sm:flex-col ">
               <p className="text-lg sm:text-lg lg:text-2xl font-semibold text-white">
                 {" "}
                 <u>Smart Contract Addresses</u>{" "}
               </p>{" "}
               {/* <hr className=" bg-white sm:mx-auto " /> */}
-              <div className="gap-2 flex ">
+              <div className="sm: gap-2 flex ">
                 {" "}
                 <a
                   href="https://bscscan.com/address/0xc94cDB70F1ec91437C5d22340d5206B4B8928482"
@@ -65,7 +65,7 @@ function Registration() {
           </div>
 
           {/* Divider */}
-          <hr className="my-6 border-gray-200 sm:mx-auto lg:my-8" />
+          <hr className="my-6 border-gray-200  sm:mx-auto lg:my-10" />
 
           {/* Bottom Section */}
           <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-between">

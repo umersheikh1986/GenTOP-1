@@ -26,7 +26,7 @@ const UserDashboard1 = () => {
   const [totalPurchasedToken, settotalPurchasedToken] = useState(null);
   const [wa, setWA] = useState(walletAddress);
   // const [signer, setSigner] = useState([]);
-  console.log("this is signer from state", signer);
+  // console.log("this is signer from state", signer);
 
   const [currentReward, setCurrentReward] = useState([]);
   const [stakingContract, setStakingContract] = useState();
@@ -883,6 +883,10 @@ const UserDashboard1 = () => {
 
   useEffect(() => {
     const updateCountdown = async () => {
+      if (!walletAddress || !signer) {
+        console.log("Execution stopped: Wallet address or signer is null.");
+        return; // Stop further execution
+      }
       await fetchStakingDetails();
       // await withdrawReward();
       // console.log(`from useEffect : => ${signer}`);
@@ -1366,7 +1370,7 @@ const UserDashboard1 = () => {
   }
   return (
     <div>
-      <div className="flex flex-col md:flex-row pt-5  min-h-screen text-white  space-x-5">
+      <div className="flex flex-col md:flex-row pt-5 sm:pt-20  min-h-screen text-white   space-x-5">
         {/* Left Side: Connect Wallet Button */}
         <div className=" md:w-1/4 p-10 shadow-md rounded-lg">
           <h2 className="text-xl font-semibold mb-6">User Dashboard</h2>
