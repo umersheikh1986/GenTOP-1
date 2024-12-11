@@ -761,7 +761,7 @@ const UserDashboard1 = () => {
         signer
       );
 
-      console.log("Staking Contract:", walletAddress, contract);
+      // console.log("Staking Contract:", walletAddress, contract);
 
       const purchaseData = {};
       let totalStakingRewardSum = 0;
@@ -778,10 +778,10 @@ const UserDashboard1 = () => {
         // const statusOfReward = await contract.userPurchasesS(walletAddress, i);
         const [userAdd, JoinTime, JoiningAmount, Percenatge] =
           await contract1.getUserData(walletAddress, i);
-        console.log(
-          "This is joining Amount from fetching Details function",
-          Number(JoiningAmount)
-        );
+        // console.log(
+        //   "This is joining Amount from fetching Details function",
+        //   Number(JoiningAmount)
+        // );
         const [joinTime, EndTime, totalReward] = await contract.GetUserData(
           walletAddress,
           i
@@ -799,10 +799,10 @@ const UserDashboard1 = () => {
 
         const stakingReward = totalReward / 1e18; // Convert reward from wei
         const uptoDateReward = Number(JoiningAmount / 1e18);
-        console.log(
-          "This is stored value of joining Amount in ",
-          uptoDateReward
-        );
+        // console.log(
+        //   "This is stored value of joining Amount in ",
+        //   uptoDateReward
+        // );
         totalStakingRewardSum += stakingReward; // Add to the sum
         totalUptoDateRewardSum += uptoDateReward; // Add to up-to-date rewards sum
         // Determine the plan based on `endTime`
@@ -1434,7 +1434,7 @@ const UserDashboard1 = () => {
                         </td>
                         <td className="border px-20 py-4  text-[#F7CE3C] font-bold">
                           {data.uptoDateRewards
-                            ? `${data.uptoDateRewards.toFixed(0)}`
+                            ? `${data.uptoDateRewards}`
                             : "0"}
                         </td>
                         <td className="border px-10 py-4 text-[#F7CE3C] font-bold">
