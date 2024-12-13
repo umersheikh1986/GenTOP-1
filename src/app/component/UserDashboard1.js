@@ -50,7 +50,7 @@ const UserDashboard1 = () => {
     let otherDigits = integer.slice(0, -3);
 
     // Add commas for every two digits in the remaining part
-    otherDigits = otherDigits.replace(/\B(?=(\d{2})+(?!\d))/g, ",");
+    otherDigits = otherDigits.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
     // Combine the formatted integer part with the last three digits
     const formattedInteger = otherDigits
