@@ -747,8 +747,10 @@ const UserDashboard1 = () => {
       // Fetch the number of purchases
       const No_Of_Purchases = await contract1.UserPurcahases(walletAddress);
       const numPurchases = Number(No_Of_Purchases);
-      console.log("Number of purchases:", numPurchases);
-
+      // console.log("Number of purchases:", numPurchases);
+      // if (numPurchases === "0") {
+      //   numPurchases = 1;
+      // }
       const purchases = Array.from(
         { length: numPurchases },
         (_, index) => index + 1
@@ -1370,11 +1372,11 @@ const UserDashboard1 = () => {
           </div>
           <div className=" mt-5  font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Gentop Staked</p>
-            <p className="text-center"> {totalStakingRewardSum}</p>
+            <p className="text-center"> {totalUptoDateRewardSum} </p>
           </div>
           <div className=" mt-5  font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Rewards</p>
-            <p className="text-center">{totalUptoDateRewardSum}</p>
+            <p className="text-center"> {totalStakingRewardSum}</p>
           </div>
           <div className=" mt-5  font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Token Purchased </p>
