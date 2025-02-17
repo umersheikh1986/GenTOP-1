@@ -2824,7 +2824,7 @@ export default function Trade() {
                 </select>
 
                 <button
-                  // onClick={approveUSDT}
+                  onClick={approveUSDT}
                   className="mt-4 w-full bg-white text-[#14000b] font-bold py-2 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2"
                 >
                   Approve
