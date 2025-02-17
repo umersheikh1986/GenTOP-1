@@ -1380,7 +1380,7 @@ const UserDashboard1 = () => {
           </div>
           <div className=" mt-5  font-bold text-white rounded-md border-2 border-white text-lg">
             <p className="text-center">Total Token Purchased </p>
-            <p className="text-center"> {totalPurchasedToken.toFixed(1)}</p>
+            <p className="text-center"> {totalPurchasedToken.toFixed(0)}</p>
           </div>
           {loading ? (
             <p>Loading purchases...</p>
