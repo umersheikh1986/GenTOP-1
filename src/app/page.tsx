@@ -13,9 +13,9 @@ export default function Home() {
   return (
     <main>
       {/* <HomeHeader /> */}
-      <HeroSection />
+      {/* <HeroSection /> */}
       <Solidarity />
-      <Mentality />
+      {/* <Mentality /> */}
       <Decentralization />
       {/* <CombinedLevel /> */}
       <IndividualLevel />
