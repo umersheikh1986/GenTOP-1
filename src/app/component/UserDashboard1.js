@@ -18,7 +18,7 @@ const UserDashboard1 = () => {
     useContext(WalletContext);
   const [loading, setLoading] = useState(false);
 
-  const [totalPurchasedToken, settotalPurchasedToken] = useState("5");
+  const [totalPurchasedToken, settotalPurchasedToken] = useState(null);
   const [wa, setWA] = useState(walletAddress);
 
   const [No_Of_Purchases, setNo_Of_Purchases] = useState([]);
