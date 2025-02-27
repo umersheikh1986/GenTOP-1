@@ -70,6 +70,11 @@ export default function RootLayout({ children }) {
           {children}
           <Registration />
         </WalletProvider> */}
+        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+          <h1 className="text-3xl md:text-5xl font-bold text-gray-800">
+            WEBSITE IS UNDER CONSTRUCTION
+          </h1>
+        </div>
       </body>
     </html>
   );
