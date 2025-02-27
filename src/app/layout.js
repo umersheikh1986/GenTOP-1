@@ -64,12 +64,12 @@ const geistMono = localFont({
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className="bg-[#14000b]">
-        <WalletProvider>
+      <body>
+        {/* <WalletProvider>
           <HomeHeader />
           {children}
           <Registration />
-        </WalletProvider>
+        </WalletProvider> */}
       </body>
     </html>
   );
